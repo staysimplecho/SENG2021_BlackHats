@@ -6,4 +6,6 @@
 |Francis Li|z5223756|
 |Janette Lin|z5267573|
 |Sojin Nam|z526|
+
+---------------------------------------------------------------
 A brief introduction to your problem and protype implementation
