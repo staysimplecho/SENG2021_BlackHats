@@ -1,6 +1,5 @@
 # BlackHats
 |Name|zid|
-|Section|Weighting|Criteria|
 |---|---|---|
 |Quality of testing methods|15%|<ul><li>Demonstration of how your automated tests test your backend</li><li>Demonstration of use of good test design</li></ul>|
 |Documentation and Modelling|5%|<ul><li>Produce an ER diagram to model your backend data</li><li>ER diagram accurately reflects team's data layer</li></ul>
