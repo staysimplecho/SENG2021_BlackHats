@@ -1,6 +1,12 @@
 # Problem Statement
-
-
+1. There is no comment section for users to share their opinion about an event
+2. Event recommendations are not personalized or interactive
+3. Typesetting is unclear and repetitive
+4. There is no profile management page for a logged-in user
+5. There is no automatic music player
+6. Users cannot save events onto their personal calendars
+7. Sold out events are not labeled ‘sold out’
+8. Notification system can be improved
 
 # Identify and Describe User Stories
 
