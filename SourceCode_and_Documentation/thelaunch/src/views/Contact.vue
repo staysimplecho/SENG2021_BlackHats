@@ -218,12 +218,12 @@
           </div>
         </div>
 
-        <div class="map">
+        <div class="map" style="align-self:center;justify-self:center;">
           <div></div>
           <GmapMap
             :center="center"
             :zoom="15"
-            style="width: 700px; height: 480px;margin-left:40px;"
+            style="width: 700px; height: 480px;"
           >
             <GmapMarker
               :key="index"
@@ -256,143 +256,140 @@
             </h2>
           </div>
         </div>
-        <div class="contact-info">
-          <div
-            data-packed="false"
-            style="width: 267px; min-height: 152px; pointer-events: none;"
-            data-min-height="152"
-            class="txtNew"
-            id="comp-j9qtwef6"
-          >
-            <p class="font_8" style="line-height:1.95em;">
-              <span class="color_15"
-                ><span style="letter-spacing:0.07em;"
-                  >Looking to host a private party or book your band to play at
-                  The Launch? We’re open for business - please send us an email
-                  or give us a call for details.</span
-                ></span
-              >
-            </p>
-          </div>
-          <div
-            data-packed="false"
-            style="width: 353px; min-height: 58px; pointer-events: none;"
-            data-min-height="58"
-            class="txtNew"
-            id="comp-j9qva5kv"
-          >
-            <p class="font_8" style="line-height:1.8em;">
-              <span class="color_15"
-                ><span style="letter-spacing:0.1em;"
-                  >Tel: +61 414481039<br />
-                  Email:
-                  <object height="0"
-                    ><a
-                      class="auto-generated-link"
-                      data-auto-recognition="true"
-                      data-content="z5141464@unsw.edu.au"
-                      href="mailto:z5141464@unsw.edu.au"
-                      data-type="mail"
-                      >z5141464@unsw.edu.au</a
-                    ></object
+        <div class="contact-info" style="display:flex;flex-direction:row;">
+          <div style="display:flex;flex-direction:column;">
+            <div
+              data-packed="false"
+              style="width: 267px; min-height: 152px; pointer-events: none;"
+              data-min-height="152"
+              class="txtNew"
+              id="comp-j9qtwef6"
+            >
+              <p class="font_8" style="line-height:1.95em;">
+                <span class="color_15"
+                  ><span style="letter-spacing:0.07em;"
+                    >Looking to host a private party or book your band to play
+                    at The Launch? We’re open for business - please send us an
+                    email or give us a call for details.</span
                   ></span
-                ></span
-              >
-            </p>
+                >
+              </p>
+            </div>
+            <div
+              data-packed="false"
+              style="width: 353px; min-height: 58px; pointer-events: none;"
+              data-min-height="58"
+              class="txtNew"
+              id="comp-j9qva5kv"
+            >
+              <p class="font_8" style="line-height:1.8em;">
+                <span class="color_15"
+                  ><span style="letter-spacing:0.1em;"
+                    >Tel: +61 414481039<br />
+                    Email:
+                    <object height="0"
+                      ><a
+                        class="auto-generated-link"
+                        data-auto-recognition="true"
+                        data-content="z5141464@unsw.edu.au"
+                        href="mailto:z5141464@unsw.edu.au"
+                        data-type="mail"
+                        >z5141464@unsw.edu.au</a
+                      ></object
+                    ></span
+                  ></span
+                >
+              </p>
+            </div>
           </div>
-        </div>
-
-        <div class="contact-form">
-          <form @submit.prevent="onSubmit">
-            <!--<p v-if="">
-              <b>Please Fill in the empty field.</b>
-            </p>-->
-
-            <div
-              class="style-ju0zx8lg"
-              data-disabled="false"
-              style="width: 318px; height: 34px;"
-              id="comp-ju0zx8ju"
-            >
-              <label
-                style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr"
-                class="style-ju0zx8lglabel"
-              ></label>
-              <input
-                v-model="name"
-                type="text"
-                value=""
-                placeholder="Name"
-                maxlength="100"
-                class="has-custom-focus style-input"
-                style="padding-left:40px;"
-              />
-            </div>
-            <br />
-            <div
-              class="style-ju0zx8lg"
-              data-disabled="false"
-              style="width: 318px; height: 34px;"
-              id="comp-ju0zx8jx"
-            >
-              <label
-                style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr;"
-                class="style-ju0zx8lglabel"
-              ></label>
-              <input
-                v-model="email"
-                type="email"
-                value=""
-                style="padding-left:40px"
-                required=""
-                placeholder="Email"
-                pattern="^.+@.+\.[a-zA-Z]{2,63}$"
-                maxlength="250"
-                class="has-custom-focus style-input"
-              />
-            </div>
-            <br />
-            <div
-              class="style-ju0zx8m01"
-              style="width: 318px; height: 129px;"
-              data-state="valid"
-              id="comp-ju0zx8kd"
-            >
-              <label
-                style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr"
-                class="style-ju0zx8m01label"
-              ></label>
-              <textarea
-                v-model="message"
-                style="padding-left:40px;padding-right:10px;"
-                placeholder="Add a message"
-                required=""
-                value=""
-                class="has-custom-focus style-textarea"
-                spellcheck="false"
-              ></textarea>
-            </div>
-            <br />
-            <div
-              id="comp-ju0zx8jy"
-              data-align="center"
-              data-disabled="false"
-              data-margin="0"
-              data-should-use-flex="true"
-              data-width="131"
-              data-height="34"
-              style="cursor: pointer; height: 34px; min-height: 19px; width: 131px;"
-              class="style-ju102993"
-              data-state="desktop shouldUseFlex center"
-            >
-              <button
-                style="cursor:pointer"
-                class="g-transparent-a style-ju102993link"
+          <div class="contact-form">
+            <form @submit.prevent="onSubmit">
+              <div
+                class="style-ju0zx8lg"
+                data-disabled="false"
+                style="width: 318px; height: 34px;"
+                id="comp-ju0zx8ju"
               >
-                <span class="style-ju102993label">GET IN TOUCH</span>
-              </button>
-            </div>
-          </form>
+                <label
+                  style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr"
+                  class="style-ju0zx8lglabel"
+                ></label>
+                <input
+                  v-model="name"
+                  type="text"
+                  value=""
+                  placeholder="Name"
+                  maxlength="100"
+                  class="has-custom-focus style-input"
+                  style="padding-left:40px;"
+                />
+              </div>
+              <br />
+              <div
+                class="style-ju0zx8lg"
+                data-disabled="false"
+                style="width: 318px; height: 34px;"
+                id="comp-ju0zx8jx"
+              >
+                <label
+                  style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr;"
+                  class="style-ju0zx8lglabel"
+                ></label>
+                <input
+                  v-model="email"
+                  type="email"
+                  value=""
+                  style="padding-left:40px"
+                  required=""
+                  placeholder="Email"
+                  pattern="^.+@.+\.[a-zA-Z]{2,63}$"
+                  maxlength="250"
+                  class="has-custom-focus style-input"
+                />
+              </div>
+              <br />
+              <div
+                class="style-ju0zx8m01"
+                style="width: 318px; height: 129px;"
+                data-state="valid"
+                id="comp-ju0zx8kd"
+              >
+                <label
+                  style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr"
+                  class="style-ju0zx8m01label"
+                ></label>
+                <textarea
+                  v-model="message"
+                  style="padding-left:40px;padding-right:10px;"
+                  placeholder="Add a message"
+                  required=""
+                  value=""
+                  class="has-custom-focus style-textarea"
+                  spellcheck="false"
+                ></textarea>
+              </div>
+              <br />
+              <div
+                id="comp-ju0zx8jy"
+                data-align="center"
+                data-disabled="false"
+                data-margin="0"
+                data-should-use-flex="true"
+                data-width="131"
+                data-height="34"
+                style="cursor: pointer; height: 34px; min-height: 19px; width: 131px;"
+                class="style-ju102993"
+                data-state="desktop shouldUseFlex center"
+              >
+                <button
+                  style="cursor:pointer"
+                  class="g-transparent-a style-ju102993link"
+                >
+                  <span class="style-ju102993label">GET IN TOUCH</span>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -501,9 +498,13 @@ export default {
   display: grid;
   grid-template:
     "title title title" 280px
-    "address map map" 500px
-    "contact-us contact-info contact-form" 300px
-    / 1fr 1fr 1fr;
+    "address map empty" 500px
+    "contact-us contact-info empty" 300px
+    / 450px 1fr 1fr;
+}
+.empty {
+  grid-area: empty;
+  background-color: #000;
 }
 .title {
   grid-area: title;
@@ -526,8 +527,8 @@ export default {
   background-color: #000;
 }
 .contact-form {
-  grid-area: contact-form;
   background-color: #000;
+  align-self: center;
 }
 #comp-j9sf5fw9inlineContent-gridContainer {
   position: static;
@@ -596,8 +597,8 @@ export default {
 #comp-j9qtwef6 {
   position: relative;
   margin: 7px 0px 17px calc((100% - 980px) * 0.5);
-  left: 272px;
-  grid-area: 8 / 1 / 9 / 2;
+  margin-left: 10px;
+  grid-area: 2 / 3 / 3/ 4;
   justify-self: start;
   align-self: start;
 }
@@ -605,8 +606,8 @@ export default {
 #comp-j9qva5kv {
   position: relative;
   margin: 0px 0px 10px calc((100% - 980px) * 0.5);
-  left: 273px;
-  grid-area: 9 / 1 / 10 / 2;
+  margin-left:10px;
+  grid-area: 2 / 3 / 3 / 4;
   justify-self: start;
   align-self: start;
 }
