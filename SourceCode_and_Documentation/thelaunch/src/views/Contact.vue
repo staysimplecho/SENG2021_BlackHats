@@ -304,9 +304,9 @@
 
         <div class="contact-form">
           <form @submit.prevent="onSubmit">
-            <p v-if="errors.length">
+            <!--<p v-if="">
               <b>Please Fill in the empty field.</b>
-            </p>
+            </p>-->
 
             <div
               class="style-ju0zx8lg"
@@ -363,8 +363,10 @@
                 class="style-ju0zx8m01label"
               ></label>
               <textarea
+                v-model="message"
                 style="padding-left:40px;padding-right:10px;"
                 placeholder="Add a message"
+                required=""
                 value=""
                 class="has-custom-focus style-textarea"
                 spellcheck="false"
@@ -407,6 +409,9 @@ import Footer from "@/components/Footer.vue";
 
 import Vue from "vue";
 import * as VueGoogleMaps from "vue2-google-maps";
+
+import emailjs from "emailjs-com";
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: "AIzaSyBNmajm_tGfxednNNM5uzONqYoxyiLagTk",
@@ -425,8 +430,6 @@ export default {
       name: null,
       email: null,
       message: null,
-      errors: [],
-      reg: /^(([^<>()\\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
       //maps
       center: { lat: -33.91758, lng: 151.22884 },
       markers: [
@@ -459,20 +462,30 @@ export default {
           };
           this.$emit("contact-submitted", contactForm);
         }
+        emailjs.init("user_fBAvAnY7neme7zZNIo6sP");
+        emailjs
+          .send(
+            "gmail", //get this from emailjs dashboard
+            "template_RjA5licv", //get this from emailjs dashboard
+            {
+              name: this.name,
+              email: this.email,
+              message: this.message,
+            }
+          )
+          .then(
+            (response) => {
+              console.log("SUCCESS You just sent an email...", response);
+              alert("Request has been successfullt sent!");
+            },
+            (error) => {
+              console.log("FAILED Throw an error to user...", error);
+            }
+          );
         this.name = null;
         this.email = null;
         this.message = null;
-      } else {
-        if (!this.email) this.errors.push("Email required.");
-        if (!this.message) this.errors.push("Message required.");
       }
-    },
-    isEmailValid() {
-      return this.email == ""
-        ? ""
-        : this.reg.test(this.email)
-        ? "has-success"
-        : "has-error";
     },
   },
 };
