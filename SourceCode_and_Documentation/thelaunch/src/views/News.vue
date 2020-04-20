@@ -45,14 +45,15 @@
                   </span>
                 </p>
                 <div>
+                  <!--change link-->
                   <a
                     href="https://www.youtube.com/watch?v=cQAXMjxh04I"
                     target="_self"
                   >
                     <span
-                      @mouseover="hover = true"
-                      @mouseleave="hover = false"
-                      :class="{ active: hover }"
+                      @mouseover="hover1 = true"
+                      @mouseleave="hover1 = false"
+                      :class="{ active: hover1 }"
                       class="readmore-font"
                       style="margin-left:0px;"
                       >Read More</span
@@ -60,252 +61,26 @@
                   </a>
                 </div>
               </div>
-              <div class="news-img"></div>
-            </article>
-          </div>
-
-          <div class="border-line"></div>
-          <div style="padding:20px;overflow:hidden;margin:0px 20%;">
-            <article>
-              <div class="news-title">
-                <h2
-                  class="title-font"
-                  style="inline-height:1.4em;font-size:26px;"
+              <div class="news-img">
+                <!--change link-->
+                <a
+                  style="cursor:pointer; width:250px;height:129px;"
+                  href="https://www.youtube.com/watch?v=cQAXMjxh04I"
+                  target="_self"
+                  class="ca1link"
                 >
-                  <span style="font-size:26px;">News Title 02</span>
-                </h2>
-                <p class="date-font" style="font-size:12px; line-height=1.5em;">
-                  <span style="font-size:12px;">
-                    <span style="letter-spacing:0em;">MAR. 23, 2020</span>
-                  </span>
-                </p>
-              </div>
-              <div class="news-detail">
-                <p
-                  class="detail-font"
-                  style="font-size:14px;line-height:1.6em;"
-                >
-                  <span style="font-size:14px;">
-                    <span style="letter-spacing:0em;">
-                      I'm a paragraph. I'm connected to your collection through
-                      a dataset. Click Preview to see my content. To update me,
-                      go to the Data Manager.
-                    </span>
-                  </span>
-                </p>
-                <div>
-                  <a
-                    href="https://www.youtube.com/watch?v=cQAXMjxh04I"
-                    target="_self"
+                  <picture
+                    style="width:250px;height:129px;"
+                    src="https://static.wixstatic.com/media/fc7570_e715f827b1bd4242ac856f8c3193188d~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_500,h_258,al_c,q_80,usm_0.66_1.00_0.01/heidi-sandstrom-362642-unsplash.webp"
                   >
-                    <span
-                      @mouseover="hover = true"
-                      @mouseleave="hover = false"
-                      :class="{ active: hover }"
-                      class="readmore-font"
-                      style="margin-left:0px;"
-                      >Read More</span
-                    >
-                  </a>
-                </div>
+                    <img
+                      style="object-position:50% 50%;width:250px;height:129px;object-fit:cover;"
+                      itemprop="image"
+                      src="https://static.wixstatic.com/media/fc7570_e715f827b1bd4242ac856f8c3193188d~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_500,h_258,al_c,q_80,usm_0.66_1.00_0.01/heidi-sandstrom-362642-unsplash.webp"
+                    />
+                  </picture>
+                </a>
               </div>
-              <div class="news-img"></div>
-            </article>
-          </div>
-
-          <div class="border-line"></div>
-          <div style="padding:20px;overflow:hidden;margin:0px 20%;">
-            <article>
-              <div class="news-title">
-                <h2
-                  class="title-font"
-                  style="inline-height:1.4em;font-size:26px;"
-                >
-                  <span style="font-size:26px;">News Title 03</span>
-                </h2>
-                <p class="date-font" style="font-size:12px; line-height=1.5em;">
-                  <span style="font-size:12px;">
-                    <span style="letter-spacing:0em;">MAR. 23, 2020</span>
-                  </span>
-                </p>
-              </div>
-              <div class="news-detail">
-                <p
-                  class="detail-font"
-                  style="font-size:14px;line-height:1.6em;"
-                >
-                  <span style="font-size:14px;">
-                    <span style="letter-spacing:0em;">
-                      I'm a paragraph. I'm connected to your collection through
-                      a dataset. Click Preview to see my content. To update me,
-                      go to the Data Manager.
-                    </span>
-                  </span>
-                </p>
-                <div>
-                  <a
-                    href="https://www.youtube.com/watch?v=cQAXMjxh04I"
-                    target="_self"
-                  >
-                    <span
-                      @mouseover="hover = true"
-                      @mouseleave="hover = false"
-                      :class="{ active: hover }"
-                      class="readmore-font"
-                      style="margin-left:0px;"
-                      >Read More</span
-                    >
-                  </a>
-                </div>
-              </div>
-              <div class="news-img"></div>
-            </article>
-          </div>
-
-          <div class="border-line"></div>
-          <div style="padding:20px;overflow:hidden;margin:0px 20%;">
-            <article>
-              <div class="news-title">
-                <h2
-                  class="title-font"
-                  style="inline-height:1.4em;font-size:26px;"
-                >
-                  <span style="font-size:26px;">News Title 04</span>
-                </h2>
-                <p class="date-font" style="font-size:12px; line-height=1.5em;">
-                  <span style="font-size:12px;">
-                    <span style="letter-spacing:0em;">MAR. 23, 2020</span>
-                  </span>
-                </p>
-              </div>
-              <div class="news-detail">
-                <p
-                  class="detail-font"
-                  style="font-size:14px;line-height:1.6em;"
-                >
-                  <span style="font-size:14px;">
-                    <span style="letter-spacing:0em;">
-                      I'm a paragraph. I'm connected to your collection through
-                      a dataset. Click Preview to see my content. To update me,
-                      go to the Data Manager.
-                    </span>
-                  </span>
-                </p>
-                <div>
-                  <a
-                    href="https://www.youtube.com/watch?v=cQAXMjxh04I"
-                    target="_self"
-                  >
-                    <span
-                      @mouseover="hover = true"
-                      @mouseleave="hover = false"
-                      :class="{ active: hover }"
-                      class="readmore-font"
-                      style="margin-left:0px;"
-                      >Read More</span
-                    >
-                  </a>
-                </div>
-              </div>
-              <div class="news-img"></div>
-            </article>
-          </div>
-
-          <div class="border-line"></div>
-          <div style="padding:20px;overflow:hidden;margin:0px 20%;">
-            <article>
-              <div class="news-title">
-                <h2
-                  class="title-font"
-                  style="inline-height:1.4em;font-size:26px;"
-                >
-                  <span style="font-size:26px;">News Title 05</span>
-                </h2>
-                <p class="date-font" style="font-size:12px; line-height=1.5em;">
-                  <span style="font-size:12px;">
-                    <span style="letter-spacing:0em;">MAR. 23, 2020</span>
-                  </span>
-                </p>
-              </div>
-              <div class="news-detail">
-                <p
-                  class="detail-font"
-                  style="font-size:14px;line-height:1.6em;"
-                >
-                  <span style="font-size:14px;">
-                    <span style="letter-spacing:0em;">
-                      I'm a paragraph. I'm connected to your collection through
-                      a dataset. Click Preview to see my content. To update me,
-                      go to the Data Manager.
-                    </span>
-                  </span>
-                </p>
-                <div>
-                  <a
-                    href="https://www.youtube.com/watch?v=cQAXMjxh04I"
-                    target="_self"
-                  >
-                    <span
-                      @mouseover="hover = true"
-                      @mouseleave="hover = false"
-                      :class="{ active: hover }"
-                      class="readmore-font"
-                      style="margin-left:0px;"
-                      >Read More</span
-                    >
-                  </a>
-                </div>
-              </div>
-              <div class="news-img"></div>
-            </article>
-          </div>
-
-          <div class="border-line"></div>
-          <div style="padding:20px;overflow:hidden;margin:0px 20%;">
-            <article>
-              <div class="news-title">
-                <h2
-                  class="title-font"
-                  style="inline-height:1.4em;font-size:26px;"
-                >
-                  <span style="font-size:26px;">News Title 06</span>
-                </h2>
-                <p class="date-font" style="font-size:12px; line-height=1.5em;">
-                  <span style="font-size:12px;">
-                    <span style="letter-spacing:0em;">MAR. 23, 2020</span>
-                  </span>
-                </p>
-              </div>
-              <div class="news-detail">
-                <p
-                  class="detail-font"
-                  style="font-size:14px;line-height:1.6em;"
-                >
-                  <span style="font-size:14px;">
-                    <span style="letter-spacing:0em;">
-                      I'm a paragraph. I'm connected to your collection through
-                      a dataset. Click Preview to see my content. To update me,
-                      go to the Data Manager.
-                    </span>
-                  </span>
-                </p>
-                <div>
-                  <a
-                    href="https://www.youtube.com/watch?v=cQAXMjxh04I"
-                    target="_self"
-                  >
-                    <span
-                      @mouseover="hover = true"
-                      @mouseleave="hover = false"
-                      :class="{ active: hover }"
-                      class="readmore-font"
-                      style="margin-left:0px;"
-                      >Read More</span
-                    >
-                  </a>
-                </div>
-              </div>
-              <div class="news-img"></div>
             </article>
           </div>
         </div>
@@ -334,13 +109,18 @@ export default {
   },
   data() {
     return {
-      hover: false,
+      hover1: false,
+      hover2: false,
+      hover3: false,
+      hover4: false,
+      hover5: false,
+      hover6: false,
     };
   },
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 // Your AWESOME styles go here
 #news-wrap {
   background-color: black;
@@ -366,12 +146,11 @@ export default {
 }
 .container > .content {
   grid-area: content;
-  background-color: #a0f;
+  background-color: #000;
 }
 .news-title {
-  //border: solid 1px; //delete
   float: left;
-  width: 30%;
+  width: 28%;
 }
 .title-font {
   font: normal normal normal 54px/1.4em anton, sans-serif;
@@ -382,10 +161,9 @@ export default {
   color: #ffffff;
 }
 .news-detail {
-  //border: solid 1px; //delete
   float: left;
-  width: 36%;
-  margin: 0px 3%;
+  width: 35%;
+  margin: 0px 2%;
 }
 .detail-font {
   font: normal normal bold 14px/1.4em avenir-lt-w01_35-light1475496, sans-serif;
@@ -403,12 +181,15 @@ export default {
   transition: color 0.4s ease 0s;
 }
 .news-img {
-  //border: solid 1px; //delete
   float: left;
-  width: 28%;
-  height: 120px;
+  width: 250px;
+  height: 129px;
   background-color: rgb(235, 190, 191);
-  /*background-image: url('');*/
+  /*background-image: url("");*/
+}
+.ca1link {
+  display: block;
+  overflow: hidden;
 }
 .border-line {
   margin: 0px 20%;
