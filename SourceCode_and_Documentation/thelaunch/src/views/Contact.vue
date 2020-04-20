@@ -200,17 +200,17 @@
               >
             </p>
           </div>
-
+          <br />
           <div
             data-packed="false"
-            style="width: 139px; min-height: 60px; pointer-events: none;margin:0 0 0 226px;"
+            style="width: 150px; min-height: 60px; pointer-events: none;margin:0 0 0 226px;"
             data-min-height="60"
             class="txtNew"
             id="comp-j9xwqju7"
           >
             <p class="font_8" style="line-height:1.95em;">
               <span class="color_15"
-                ><span style="letter-spacing:0.06em;"
+                ><span style="letter-spacing:0.05em;"
                   >Parking is available on site</span
                 ></span
               >
@@ -230,8 +230,15 @@
               v-for="(m, index) in markers"
               :position="m.position"
               :clickable="true"
-              @click="center = m.position"
+              @click="openWindow"
             />
+            <gmap-info-window
+              @closeclick="window_open = false"
+              :opened="window_open"
+              :position="infowindow"
+            >
+              <b>UNSW</b>
+            </gmap-info-window>
           </GmapMap>
         </div>
 
@@ -400,7 +407,6 @@ import Footer from "@/components/Footer.vue";
 
 import Vue from "vue";
 import * as VueGoogleMaps from "vue2-google-maps";
-
 Vue.use(VueGoogleMaps, {
   load: {
     key: "AIzaSyBNmajm_tGfxednNNM5uzONqYoxyiLagTk",
@@ -422,15 +428,20 @@ export default {
       errors: [],
       reg: /^(([^<>()\\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
       //maps
-      center: { lat: -33.917580, lng: 151.228840 },
+      center: { lat: -33.91758, lng: 151.22884 },
       markers: [
         {
-          position: { lat: -33.917580, lng: 151.228840 },
+          position: { lat: -33.91758, lng: 151.22884 },
         },
       ],
+      infowindow: { lat: -33.916, lng: 151.22884 },
+      window_open: false,
     };
   },
   methods: {
+    openWindow() {
+      this.window_open = true;
+    },
     onSubmit() {
       if (this.email && this.message) {
         if (this.name) {
@@ -476,7 +487,7 @@ export default {
 .contact-middle-container {
   display: grid;
   grid-template:
-    "title title title" 300px
+    "title title title" 280px
     "address map map" 500px
     "contact-us contact-info contact-form" 300px
     / 1fr 1fr 1fr;
@@ -510,7 +521,7 @@ export default {
   display: grid;
   height: auto;
   width: 100%;
-  min-height: 300px;
+  min-height: 280px;
   grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content 1fr;
   grid-template-columns: 100%;
 }
