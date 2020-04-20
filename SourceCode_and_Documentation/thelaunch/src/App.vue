@@ -24,5 +24,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px; */
   // @import url("https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap");
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  border-color: black;
+  outline: none;
+  background-color: black;
 }
 </style>
