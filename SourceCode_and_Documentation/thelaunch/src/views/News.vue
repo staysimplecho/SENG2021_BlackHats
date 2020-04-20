@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="news-wrap">
+    <div id="header">
       <Header></Header>
     </div>
 
@@ -312,9 +312,10 @@
       </div>
     </div>
 
-    <div id="news-wrap">
+    <div id="footer">
       <Footer></Footer>
     </div>
+    <Player></Player>
   </div>
 </template>
 
@@ -322,12 +323,14 @@
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Player from "@/components/Player.vue";
 
 export default {
   name: "News",
   components: {
     Header,
     Footer,
+    Player
   },
   data() {
     return {

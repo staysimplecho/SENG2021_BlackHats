@@ -15,6 +15,7 @@ module.exports = {
       sass: {
         prependData: `
           @import "@/assets/css/global.scss";
+          @import "@/assets/css/fonts.scss";
         `,
       },
     },
