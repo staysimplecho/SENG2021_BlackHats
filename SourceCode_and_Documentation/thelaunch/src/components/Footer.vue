@@ -6,7 +6,7 @@
           <p>STAY UP TO DATE</p>
         </div>
         <div class="stripe-wrap">
-          <img src="../assets/stripe.svg" />
+          <img src="../assets/stripe.svg" height="14px" width="800px"/>
         </div>
         <div style="width: 100%; background-color: #fc9779;">
           <div
@@ -87,9 +87,8 @@ export default {
           font-size: 54px;
           margin: 0px;
           color: white;
-          letter-spacing: 0.005em;
-          font-weight: 700;
-          font-family: "Oswald" ,sans-serif;
+          letter-spacing: 0.04em;
+          font-family: "Anton", sans-serif;
         }
       }
       .stripe-wrap {
@@ -116,7 +115,7 @@ export default {
           width: 333px;
           font-size: 14px;
           font-weight: bold;
-          font-family: "Avenir-LT-W01_85-Heavy1475544", sans-serif;
+          font-family: "Avenir-LT-W01_35-Light1475496", sans-serif;
           letter-spacing: 0.06em;
         }
         .email-boxes {
