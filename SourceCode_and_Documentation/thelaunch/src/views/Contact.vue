@@ -403,18 +403,8 @@
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-
-import Vue from "vue";
-import * as VueGoogleMaps from "vue2-google-maps";
-
 import emailjs from "emailjs-com";
 
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: "AIzaSyBNmajm_tGfxednNNM5uzONqYoxyiLagTk",
-    libraries: "places",
-  },
-});
 export default {
   name: "Contact",
   components: {
