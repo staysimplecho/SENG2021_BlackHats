@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <div id="contact-wrap">
-      <Header></Header>
-    </div>
+  <div id="contact-wrap">
+    <Header></Header>
     <section
       style="
         left: 0;
-        width: 100%;
+        width: 1390px;
         min-width: 980px;
         height: auto;
         top: ;
         bottom: ;
         right: ;
         position: ;
-        margin-left: 0;
-      "
+        margin-left: auto;
+        margin-right:auto;"
       data-responsive="true"
       data-is-screen-width="true"
       data-col-margin="0"
@@ -393,9 +391,8 @@
         </div>
       </div>
     </section>
-    <div id="contact-wrap">
-      <Footer></Footer>
-    </div>
+    <Footer></Footer>
+    <Player></Player>
   </div>
 </template>
 
@@ -403,13 +400,25 @@
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Player from "@/components/Player.vue";
+
+import Vue from "vue";
+import * as VueGoogleMaps from "vue2-google-maps";
+
 import emailjs from "emailjs-com";
 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyBNmajm_tGfxednNNM5uzONqYoxyiLagTk",
+    libraries: "places",
+  },
+});
 export default {
   name: "Contact",
   components: {
     Header,
     Footer,
+    Player
   },
   data() {
     return {
@@ -596,7 +605,7 @@ export default {
 #comp-j9qva5kv {
   position: relative;
   margin: 0px 0px 10px calc((100% - 980px) * 0.5);
-  margin-left:10px;
+  margin-left: 10px;
   grid-area: 2 / 3 / 3 / 4;
   justify-self: start;
   align-self: start;
