@@ -104,7 +104,7 @@
               data-min-height="55"
               class="txtNew"
               id="comp-jckajvkz"
-              style="width: 600px; min-height: 55px; pointer-events: none;left:30px;top:15px;"
+              style="width: 600px; min-height: 55px; pointer-events: none;left:48px;top:1px;"
             >
               <h1 class="font_2">
                 <span class="color_11">
@@ -906,9 +906,8 @@ export default {
 }
 
 .font_2 {
-  font: normal normal bold 40px/1.4em anton, sans-serif;
+  font: normal normal normal 54px/1.4em anton, sans-serif;
   color: #ffffff;
-  transform: scaleY(1.5);
 }
 .font_5 {
   font: normal normal normal 22px/1.4em avenir-lt-w01_35-light1475496,
