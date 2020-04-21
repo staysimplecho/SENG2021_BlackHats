@@ -5,7 +5,6 @@ import Events from "../views/Events.vue";
 import Artists from "../views/Artists.vue";
 import News from "../views/News.vue";
 import Contact from "../views/Contact.vue";
-import NewsInfo from "../views/NewsInfo.vue";
 
 Vue.use(VueRouter);
 
@@ -39,11 +38,6 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: Contact,
-  },
-  {
-    path: "/news/newsinfo",
-    name: "NewsInfo",
-    component: NewsInfo,
   },
 ];
 

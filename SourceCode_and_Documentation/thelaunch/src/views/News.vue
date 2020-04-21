@@ -7,82 +7,74 @@
     <div class="container">
       <div class="title">
         <div>
-          <h1 id="big-title">
+          <h1>
             Latest News
           </h1>
         </div>
       </div>
 
       <div class="content">
-        <div class="index-news">
+        <div
+          class="index-news"
+          v-for="(article, index) in articles"
+          :key="index"
+          v-show="index < newsToShow"
+        >
           <div class="border-line"></div>
-          <div style="padding:20px;overflow:hidden;margin:0px 20%;">
-            <article>
+          <div style="padding:30px;overflow:hidden;margin:0px 15%;">
+            <section style="overflow:hidden;">
               <div class="news-title">
-                <h2
-                  class="title-font"
-                  style="inline-height:1.4em;font-size:26px;"
-                >
-                  <span style="font-size:26px;">News Title 01</span>
+                <h2 style="inline-height:1.4em;font-size:20px;">
+                  <span style="font-size:20px;">{{ article.title }}</span>
                 </h2>
-                <p class="date-font" style="font-size:12px; line-height=1.5em;">
+                <p style="font-size:12px; line-height=1.5em;">
                   <span style="font-size:12px;">
-                    <span style="letter-spacing:0em;">MAR. 23, 2020</span>
+                    <span style="letter-spacing:0em;">{{
+                      article.publishedAt | moment("MMM. DD, YYYY")
+                    }}</span>
                   </span>
                 </p>
               </div>
               <div class="news-detail">
-                <p
-                  class="detail-font"
-                  style="font-size:14px;line-height:1.6em;"
-                >
+                <p style="font-size:14px;line-height:1.6em;">
                   <span style="font-size:14px;">
-                    <span style="letter-spacing:0em;">
-                      I'm a paragraph. I'm connected to your collection through
-                      a dataset. Click Preview to see my content. To update me,
-                      go to the Data Manager.
+                    <span
+                      v-if="article.description"
+                      style="letter-spacing:0.01em;"
+                    >
+                      {{ article.description }}
                     </span>
+                    <span v-else
+                      >There is not a short description for this news. Click
+                      "Read More" to get more information.</span
+                    >
                   </span>
                 </p>
                 <div>
-                  <!--change link-->
-                  <a
-                    href="https://www.youtube.com/watch?v=cQAXMjxh04I"
-                    target="_self"
-                  >
-                    <span
-                      @mouseover="hover1 = true"
-                      @mouseleave="hover1 = false"
-                      :class="{ active: hover1 }"
-                      class="readmore-font"
-                      style="margin-left:0px;"
-                      >Read More</span
-                    >
+                  <a :href="article.url" target="_blank">
+                    <span style="margin-left:0px;">Read More</span>
                   </a>
                 </div>
               </div>
               <div class="news-img">
-                <!--change link-->
-                <a
-                  style="cursor:pointer; width:250px;height:129px;"
-                  href="https://www.youtube.com/watch?v=cQAXMjxh04I"
-                  target="_self"
-                  class="ca1link"
-                >
-                  <picture
-                    style="width:250px;height:129px;"
-                    src="https://static.wixstatic.com/media/fc7570_e715f827b1bd4242ac856f8c3193188d~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_500,h_258,al_c,q_80,usm_0.66_1.00_0.01/heidi-sandstrom-362642-unsplash.webp"
-                  >
+                <a style="cursor:pointer;" :href="article.url" target="_blank">
+                  <picture :src="article.url">
                     <img
-                      style="object-position:50% 50%;width:250px;height:129px;object-fit:cover;"
+                      style="object-position:50% 50%;object-fit:cover;"
                       itemprop="image"
-                      src="https://static.wixstatic.com/media/fc7570_e715f827b1bd4242ac856f8c3193188d~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_500,h_258,al_c,q_80,usm_0.66_1.00_0.01/heidi-sandstrom-362642-unsplash.webp"
+                      :src="article.urlToImage"
                     />
                   </picture>
                 </a>
               </div>
-            </article>
+            </section>
           </div>
+        </div>
+        <div class="loading">
+          <button v-if="showMore" @click="loadMore">
+            <span>Load More</span>
+          </button>
+          <span class="nomore" v-else>There is no more news</span>
         </div>
       </div>
     </div>
@@ -99,23 +91,45 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Player from "@/components/Player.vue";
-
+import axios from "axios";
+import Vue from "vue";
+Vue.use(require("vue-moment"));
 export default {
   name: "News",
   components: {
     Header,
     Footer,
-    Player
+    Player,
   },
   data() {
     return {
-      hover1: false,
-      hover2: false,
-      hover3: false,
-      hover4: false,
-      hover5: false,
-      hover6: false,
+      articles: [],
+      newsToShow: 5,
+      totalNews: 20,
+      showMore: true,
+      totalResults: 0,
     };
+  },
+  mounted() {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?category=entertainment&country=au&apiKey=78ea33945cae4f97908a86b821880b8f"
+      )
+      .then((response) => {
+        this.articles = response.data.articles;
+        this.totalResults = response.data.totalResults;
+        console.log(this.totalResults);
+        console.log(this.articles);
+      });
+  },
+  methods: {
+    loadMore() {
+      if (this.newsToShow < this.totalNews) {
+        this.newsToShow += 5;
+      } else {
+        this.showMore = false;
+      }
+    },
   },
 };
 </script>
@@ -125,82 +139,129 @@ export default {
 #news-wrap {
   background-color: black;
 }
-#big-title {
-  text-align: center;
-  font: normal normal normal 54px/1.4em dinneuzeitgroteskltw01-_812426,
-    sans-serif;
-  color: #fc9779;
-}
 // contact-middle
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 200px 1fr;
+  grid-template-rows: 150px 1fr 100px;
   grid-template-areas:
     "title"
-    "content";
-}
-.container > .title {
-  grid-area: title;
-  background-color: #000000;
-}
-.container > .content {
-  grid-area: content;
-  background-color: #000;
-}
-.news-title {
-  float: left;
-  width: 28%;
-}
-.title-font {
-  font: normal normal normal 54px/1.4em anton, sans-serif;
-  color: #ffffff;
-}
-.date-font {
-  font: normal normal bold 14px/1.4em avenir-lt-w01_35-light1475496, sans-serif;
-  color: #ffffff;
-}
-.news-detail {
-  float: left;
-  width: 35%;
-  margin: 0px 2%;
-}
-.detail-font {
-  font: normal normal bold 14px/1.4em avenir-lt-w01_35-light1475496, sans-serif;
-  color: #ffffff;
-}
-.readmore-font {
-  font: normal normal 700 14px/1.4em poppins-extralight, poppins, sans-serif;
-  transition: color 0.4s ease 0s;
-  color: #fc9779;
-  white-space: nowrap;
-  display: inline-block;
-}
-.active {
-  color: #7e4c3d;
-  transition: color 0.4s ease 0s;
-}
-.news-img {
-  float: left;
-  width: 250px;
-  height: 129px;
-  background-color: rgb(235, 190, 191);
-  /*background-image: url("");*/
-}
-.ca1link {
-  display: block;
-  overflow: hidden;
+    "content"
+    "loading";
+  .title {
+    grid-area: title;
+    background-color: #000000;
+    h1 {
+      text-align: center;
+      font: normal normal normal 54px/1.4em dinneuzeitgroteskltw01-_812426,
+        sans-serif;
+      color: #fc9779;
+    }
+  }
+  .content {
+    grid-area: content;
+    background-color: #000;
+    .index-news {
+      width: 100%;
+      padding: 80px 0px;
+      background-color: #000;
+      overflow: hidden;
+      height: 180px;
+      min-height: 150px;
+      .news-title {
+        float: left;
+        width: 28%;
+        margin-top: -15px;
+        h2 {
+          font: normal normal normal 54px/1.4em anton, sans-serif;
+          color: #ffffff;
+        }
+        p {
+          font: normal normal bold 14px/1.4em avenir-lt-w01_35-light1475496,
+            sans-serif;
+          color: #ffffff;
+        }
+      }
+      .news-detail {
+        float: left;
+        width: 35%;
+        margin: 0px 2%;
+        p {
+          font: normal normal bold 14px/1.4em avenir-lt-w01_35-light1475496,
+            sans-serif;
+          color: #ffffff;
+        }
+        a {
+          span {
+            font: normal normal 700 14px/1.4em poppins-extralight, poppins,
+              sans-serif;
+            transition: color 0.4s ease 0s;
+            color: #fc9779;
+            white-space: nowrap;
+            display: inline-block;
+          }
+          span:hover {
+            color: #7e4c3d;
+            transition: color 0.4s ease 0s;
+          }
+        }
+      }
+      .news-img {
+        float: left;
+        width: 300px;
+        height: 200px;
+        background-color: rgb(235, 190, 191);
+        /*background-image: url("");*/
+        a {
+          display: block;
+          overflow: hidden;
+          picture {
+            width: 300px;
+            height: 200px;
+            img {
+              width: 300px;
+              height: 200px;
+            }
+          }
+        }
+      }
+    }
+    .loading {
+      grid-area: loading;
+      display: flex;
+      justify-content: center;
+      button {
+        box-sizing: border-box;
+        width: 100px;
+        height: 50px;
+        border: 3px double white;
+        background-color: #fc9779;
+        outline: none;
+        span {
+          font-size: 15px;
+          font-family: sans-serif;
+        }
+      }
+      button:hover {
+        background-color: black;
+        border: 3px double #fc9779;
+        span {
+          color: #fc9779;
+        }
+      }
+      .nomore {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+        color: #fc9779;
+      }
+    }
+  }
 }
 .border-line {
-  margin: 0px 20%;
+  margin: 0px 15%;
   box-sizing: border-box;
-  border-top: 1px solid rgba(27, 27, 27, 1);
+  border: 1px solid rgba(27, 27, 27, 1);
   height: 0;
-}
-.index-news {
-  width: 100%;
-  padding: 80px 0px;
-  background-color: #000;
-  overflow: hidden;
 }
 </style>
