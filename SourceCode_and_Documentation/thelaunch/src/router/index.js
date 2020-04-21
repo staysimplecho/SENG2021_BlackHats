@@ -39,6 +39,16 @@ const routes = [
     name: "Contact",
     component: Contact,
   },
+  {
+    path: "/news/newsinfo",
+    name: "NewsInfo",
+    component: NewsInfo,
+  },
+  // {
+  //   path: "/profile",
+  //   name: "Profile",
+  //   component: Profile,
+  // },
 ];
 
 const router = new VueRouter({
