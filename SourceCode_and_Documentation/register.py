@@ -1,3 +1,4 @@
+"""Flask server"""
 import sys
 from json import dumps
 from datetime import datetime
@@ -7,7 +8,7 @@ import re
 import hashlib
 from flask_cors import CORS
 from flask import Flask, request, jsonify
-#from flask_mail import Mail, Message
+from flask_mail import Mail, Message
 from werkzeug.exceptions import HTTPException
 import jwt
 regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
@@ -16,15 +17,13 @@ app = Flask(__name__)
 CORS(app)
 # SETUP OF ERROR HANDLER ABOVE
 # SETUP OF EMAIL BELOW
-"""
 app.config.update(
-    MAIL_SERVER='smtp.163.com',
+    MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=465,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME='lijiatao_sjz@163.com',
-    MAIL_PASSWORD="1230OO1LLll!"
+    MAIL_USERNAME='slackrskywalkers@gmail.com',
+    MAIL_PASSWORD="Blabla5!"
 )
-"""
 # SETUP OF EMAIL ABOVE
 # registered_users = {} # {u_id : email, token}
 users = []
@@ -39,19 +38,31 @@ class User:
         self.email = email
         self.password = password
         self.u_id = 0
+        self.handle = 'anonymity'
         self.state = 0  # 0 - Unregistered, 1 - Registered/Logged in, 2 - Logged Out
         self.reset_code = None
         self.profile_image = ''
         self.channels = []
         self.status = 3 # 1 - SLACKR Owner, 2 - Admin, 3 - Member
-
+@app.route('/echo/get', methods=['GET'])
+def echo1():
+    """ Description of function """
+    return dumps({
+        'echo' : request.args.get('echo'),
+    })
+@app.route('/echo/post', methods=['POST'])
+def echo2():
+    """ Description of function """
+    return dumps({
+        'echo' : request.form.get('echo'),
+    })
 #####################################################################################
 #                                                                                   #
 #                               AUTHENTICATION FUNCTIONS                            #
 #                                                                                   #
 #####################################################################################
 # REGISTRATION FUNCTION
-@app.route("/user/register", methods=["POST"])
+@app.route("/register", methods=["POST"])
 def auth_register():
     users = get_data()
     email = request.form.get("email")   # Getting the email from server
@@ -59,9 +70,9 @@ def auth_register():
     # Checking whether email is valid
     result = valid_email(email)
     if result == -1:
-        raise ValueError(f"Exisited Email.")
+        raise ValueError("Exisited Email.")
     elif result == 0:
-        raise ValueError(f"Invalid Email.")
+        raise ValueError("Invalid Email.")
     password = request.form.get("password")
     if len(password) < 5:
         raise ValueError(f"Password is too short.")
@@ -80,64 +91,6 @@ def auth_register():
     users.append(user)      # Appending the user to the list of users
     return dumps({"u_id" : int(u_id), "token" : token})
 
-@app.route("/user/login", methods=["POST"])
-def auth_login():
-    users = get_data()
-    email = request.form.get("email")
-    # CHECKS FOR INVALID INFORMATION BELOW
-    result = valid_email(email)
-    if result == 1:
-        raise ValueError(f"Email is not registered.")
-    elif result == 0:
-        raise ValueError(f"Invalid Email.")
-    # Finding u_id associated with token
-    user = get_user_for_email(email)
-    
-    # Checking matching passwords
-    input_password = request.form.get("password")
-    input_password = hashpass(input_password)
-    if input_password != user.password:
-        raise ValueError(f"Password is incorrect.")
-    #if (user.state == 1):
-    #    raise ValueError(f"User is already logged in.")
-    # CHECKS FOR INVALID INFROMATION ABOVE
-
-    # Getting user corresponding to token
-    user.token = get_token(user.u_id)
-    user.state = 1 # Setting state to logged in
-    return dumps({"u_id" : user.u_id, "token" : user.token})
-
-@app.route("/user/logout", methods=["POST"])
-def auth_logout():
-    token = request.form.get("token")
-    user = get_user_for_token(token)    # Finding user for given token
-    if user is None:                    # If there is no user corresponding to token
-        return dumps({"is_success" : False})
-    if user.state==2:               # If user is already logged out
-        return dumps({"is_success" : False})
-    user.state = 2                      # Changing the user's state to logged out
-    return dumps({"is_success" : True})
-# PASSWORD RESET REQUEST FUNCTION
-"""
-@app.route("/user/passwordreset/request", methods=["POST"])
-def auth_passwordreset_request():
-    users = get_data()
-    email = request.form.get("email")
-    user = get_user_for_email(email)
-    if user is None:
-        raise ValueError(f"No user linked to that email.")
-    reset_code = gen_reset_code()       # Generating reset code
-    user.reset_code = reset_code        # Assigning reset code to user
-    # Sending reset code to user by email
-    # NOTE: If this errors, this will be picked up by the error handler and an error will be shown
-    mail = Mail(app)
-    msg = Message("Blackhats User RESET PASSWORD",
-    sender="lijiatao_sjz@163.com",
-    recipients=[email])
-    msg.body = "You've requested to reset your password. Your reset code is : " + reset_code + "."
-    mail.send(msg)
-    return dumps({"is_success" : True})
-"""
 def create_u_id():
     global users
     return str(len(users) + 1).zfill(5)
@@ -179,9 +132,5 @@ def get_user_for_token(token):
         if (user.token == token):
             return user
     return None
-def gen_reset_code():
-    reset_code = uuid.uuid4().hex
-    return reset_code
-
 if __name__ == '__main__':
-    app.run( port = 6000)
+    app.run(port=6000)
