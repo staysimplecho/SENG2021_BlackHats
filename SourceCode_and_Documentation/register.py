@@ -10,8 +10,6 @@ from flask import Flask, request, jsonify
 from flask_mail import Mail, Message
 from werkzeug.exceptions import HTTPException
 import jwt
-import myexpect
-from error import AccessError
 regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
 # SETUP OF ERROR HANDLER BELOW
 app = Flask(__name__)
