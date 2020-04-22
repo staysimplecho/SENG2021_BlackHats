@@ -21,7 +21,7 @@
           v-show="index < newsToShow"
         >
           <div class="border-line"></div>
-          <div style="padding:30px;overflow:hidden;margin:0px 15%;">
+          <div style="padding:20px;overflow:hidden;margin:0px 15%;">
             <section style="overflow:hidden;">
               <div class="news-title">
                 <h2 style="inline-height:1.4em;font-size:20px;">
@@ -149,7 +149,7 @@ export default {
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 150px 1fr 100px;
+  grid-template-rows: 130px 1fr 100px;
   grid-template-areas:
     "title"
     "content"
@@ -172,12 +172,11 @@ export default {
       padding: 80px 0px;
       background-color: #000;
       overflow: hidden;
-      height: 180px;
-      min-height: 150px;
+      height: auto;
+      min-height: 280px;
       .news-title {
         float: left;
         width: 28%;
-        margin-top: -15px;
         h2 {
           font: normal normal normal 54px/1.4em anton, sans-serif;
           color: #ffffff;
@@ -214,7 +213,7 @@ export default {
       }
       .news-img {
         float: left;
-        width: 300px;
+        width: 240px;
         height: 200px;
         background-color: #ccc;
         /*background-image: url("");*/
@@ -222,10 +221,10 @@ export default {
           display: block;
           overflow: hidden;
           picture {
-            width: 300px;
+            width: 240px;
             height: 200px;
             img {
-              width: 300px;
+              width: 240px;
               height: 200px;
             }
           }
@@ -265,7 +264,7 @@ export default {
   }
 }
 .border-line {
-  margin: 0px 15%;
+  margin: 0px 14%;
   box-sizing: border-box;
   border: 1px solid rgba(27, 27, 27, 1);
   height: 0;
