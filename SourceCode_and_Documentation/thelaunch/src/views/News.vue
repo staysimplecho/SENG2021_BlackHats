@@ -60,10 +60,16 @@
                 <a style="cursor:pointer;" :href="article.url" target="_blank">
                   <picture :src="article.url">
                     <img
+                      v-if="article.urlToImage"
                       style="object-position:50% 50%;object-fit:cover;"
                       itemprop="image"
                       :src="article.urlToImage"
                     />
+                    <span v-else>
+                      <span style="position:absolute;margin-left:80px;margin-top:60px;"><u>No picture provided.</u></span>
+                      <br>
+                      <span style="position:absolute;margin-left:40px;margin-top:70px;"><u>Click link to see more information.</u></span>
+                    </span>
                   </picture>
                 </a>
               </div>
@@ -210,7 +216,7 @@ export default {
         float: left;
         width: 300px;
         height: 200px;
-        background-color: rgb(235, 190, 191);
+        background-color: #ccc;
         /*background-image: url("");*/
         a {
           display: block;
