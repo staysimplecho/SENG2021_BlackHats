@@ -73,7 +73,7 @@
       </div>
     </div>
     <!-- Google Map -->
-    <div class="map">
+    <div class="map-home">
       <div></div>
       <GmapMap
         :center="center"
@@ -327,7 +327,7 @@ export default {
   }
 
   // Google Map
-  .map {
+  .map-home {
     margin-bottom: 50px;
   }
 

@@ -217,7 +217,6 @@
         </div>
 
         <div class="map" style="align-self:center;justify-self:center;">
-          <div></div>
           <GmapMap
             :center="center"
             :zoom="15"
@@ -401,24 +400,14 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Player from "@/components/Player.vue";
-
-import Vue from "vue";
-import * as VueGoogleMaps from "vue2-google-maps";
-
 import emailjs from "emailjs-com";
 
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: "AIzaSyBNmajm_tGfxednNNM5uzONqYoxyiLagTk",
-    libraries: "places",
-  },
-});
 export default {
   name: "Contact",
   components: {
     Header,
     Footer,
-    Player
+    Player,
   },
   data() {
     return {
@@ -487,7 +476,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 // Your AWESOME styles go here
 #contact-wrap {
   background-color: black;
