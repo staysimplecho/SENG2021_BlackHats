@@ -40,7 +40,101 @@
       size="100%"
       custom-class="login-popup"
     >
-      <div>
+      <el-card style="background-color:black;border:none;margin-top:100px">
+        <h2
+          style="font-family:anton;font-size:50px;text-align:center;color:white;"
+        >
+          Sign Up
+        </h2>
+        <p style="text-align:center">
+          <span style="color:white;font-size:20px;">Already a member? </span
+          ><a><span style="color:#fc9779;font-size:20px;">Log In</span></a>
+        </p>
+        <div style="height:40px;"></div>
+        <div v-if="!signUp">
+          <el-button
+            style="background-color:rgb(71,89,149);color:white;border:none;width:280px;height:60px;margin-left:40%"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 266.89 266.89"
+              style="width:40px;height:40px;display:flex;flex-direction:row;margin-top:-10px"
+            >
+              <g>
+                <path
+                  style="fill:#fff;"
+                  d="M252.16,0H14.73A14.73,14.73,0,0,0,0,14.73V252.16a14.73,14.73,0,0,0,14.73,14.73H142.55V163.57H107.77V123.29h34.82V93.58c0-34.47,21.06-53.24,51.81-53.24a285.41,285.41,0,0,1,31.08,1.59v36H204.15c-16.76,0-20,8-20,19.61v25.72H224l-5.16,40.28H184.15V266.89h68a14.73,14.73,0,0,0,14.73-14.73V14.73A14.73,14.73,0,0,0,252.16,0Z"
+                ></path>
+              </g>
+            </svg>
+            <span
+              style="margin-top:-30px;margin-left:50px;font-size:20px;display:flex;flex-direction:row;"
+              >Sign up with Facebook</span
+            >
+          </el-button>
+          <div style="height:20px;"></div>
+          <el-button
+            style="background-color:rgb(92,132,241);color:white;border:none;width:280px;height:60px;margin-left:40%"
+          >
+            <img
+              src="../assets/google.png"
+              style="width:40px;height:40px;float:left;display:flex;flex-direction:row;"
+            />
+            <span
+              style="margin-top:10px;margin-left:50px;font-size:20px;display:flex;flex-direction:row;"
+              >Sign up with Google</span
+            >
+          </el-button>
+          <div style="display:flex;margin-left:39%;margin-top:20px">
+            <div
+              style="border:0.5px solid white;width:150px;height:0;flex-direction:row"
+            ></div>
+            <span style="color:white;flex-direction:row;margin-top:-10px;">
+              or
+            </span>
+            <div
+              style="border:0.5px solid white;width:150px;height:0;flex-direction:row"
+            ></div>
+          </div>
+          <div style="height:20px;"></div>
+          <el-button
+            @click="tosignUp"
+            style="background-color:black;width:280px;height:60px;position:absolute;margin-left:39%"
+          >
+            <span style="color:white;font-size:20px">Sign up with email</span>
+          </el-button>
+        </div>
+        <div v-else style="margin-left:39%">
+          <el-form
+            class="signup-form"
+            :model="model"
+            :rules="rules"
+            ref="form"
+            @submit.native.prevent="signup"
+          >
+            <el-form-item prop="Email">
+              <el-input v-model="model.email" placeholder="Email"></el-input>
+            </el-form-item>
+            <el-form-item prop="password">
+              <el-input
+                v-model="model.password"
+                placeholder="Password"
+                type="password"
+              ></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button
+                class="signup-button"
+                type="primary"
+                native-type="submit"
+                block
+                >Sign Up</el-button
+              >
+            </el-form-item>
+          </el-form>
+        </div>
+      </el-card>
+      <!--<div>
         <el-button @click="innerDrawer = true" style="outline: none;"
           >打开里面的!</el-button
         >
@@ -53,7 +147,7 @@
         >
           <p>_(:зゝ∠)_</p>
         </el-drawer>
-      </div>
+      </div>-->
     </el-drawer>
   </div>
 </template>
@@ -67,6 +161,37 @@ export default {
       drawer: false,
       innerDrawer: false,
       input: "",
+      signUp: false,
+      loading:false,
+      validCredentials: {
+        email: "mc.huang.jl@gmail.com",
+        password: "lightscope"
+      },
+      model: {
+        email: null,
+        password: null,
+      },
+      rules: {
+        email: [
+          {
+            required: true,
+            message: "Email is required",
+            trigger: "blur",
+          },
+          {
+            message: "Email length should be in example@example.com",
+            trigger: "blur",
+          },
+        ],
+        password: [
+          { required: true, message: "Password is required", trigger: "blur" },
+          {
+            min: 5,
+            message: "Password length should be at least 5 characters",
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -74,6 +199,31 @@ export default {
       this.$router.push({
         name: "Home",
       });
+    },
+    tosignUp() {
+      this.signUp = true;
+    },
+    simulateLogin() {
+      return new Promise(resolve => {
+        setTimeout(resolve, 800);
+      });
+    },
+    async signup() {
+      let valid = await this.$refs.form.validate();
+      if (!valid) {
+        return;
+      }
+      this.loading = true;
+      await this.simulateLogin();
+      this.loading = false;
+      if (
+        this.model.email === this.validCredentials.email &&
+        this.model.password === this.validCredentials.password
+      ) {
+        this.$message.success("Login successfull");
+      } else {
+        this.$message.error("Email or password is invalid");
+      }
     },
   },
 };
@@ -221,5 +371,12 @@ export default {
     animation: none;
     background-color: black;
   }
+}
+.signup-form {
+  width: 290px;
+}
+.signup-button {
+  width: 100%;
+  margin-top: 40px;
 }
 </style>
