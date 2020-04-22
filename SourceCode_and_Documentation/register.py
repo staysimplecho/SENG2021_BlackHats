@@ -118,7 +118,7 @@ def auth_login():
     user.state = 1 # Setting state to logged in
     return dumps({"u_id" : user.u_id, "token" : user.token})
 # LOGOUT FUNCTION
-@app.route("/auth/logout", methods=["POST"])
+@app.route("/logout", methods=["POST"])
 def auth_logout():
     token = request.form.get("token")
     user = get_user_for_token(token)    # Finding user for given token
