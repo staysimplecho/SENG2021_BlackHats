@@ -91,6 +91,32 @@ def auth_register():
     users.append(user)      # Appending the user to the list of users
     return dumps({"u_id" : int(u_id), "token" : token})
 
+@app.route("/login", methods=["POST"])
+def auth_login():
+    users = get_data()
+    email = request.form.get("email")
+    # CHECKS FOR INVALID INFORMATION BELOW
+    result = valid_email(email)
+    if result == 1:
+        raise ValueError(f"Email is not registered.")
+    elif result == 0:
+        raise ValueError(f"Invalid Email.")
+    # Finding u_id associated with token
+    user = get_user_for_email(email)
+    
+    # Checking matching passwords
+    input_password = request.form.get("password")
+    input_password = hashpass(input_password)
+    if input_password != user.password:
+        raise ValueError(f"Password is incorrect.")
+    #if (user.state == 1):
+    #    raise ValueError(f"User is already logged in.")
+    # CHECKS FOR INVALID INFROMATION ABOVE
+
+    # Getting user corresponding to token
+    user.token = get_token(user.u_id)
+    user.state = 1 # Setting state to logged in
+    return dumps({"u_id" : user.u_id, "token" : user.token})
 def create_u_id():
     global users
     return str(len(users) + 1).zfill(5)
