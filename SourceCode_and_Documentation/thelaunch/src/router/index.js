@@ -5,6 +5,8 @@ import Events from "../views/Events.vue";
 import Artists from "../views/Artists.vue";
 import News from "../views/News.vue";
 import Contact from "../views/Contact.vue";
+import EventInfo from "../views/EventInfo.vue";
+import ArtistInfo from "../views/ArtistInfo.vue";
 
 Vue.use(VueRouter);
 
@@ -25,9 +27,19 @@ const routes = [
     //   import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
+    path: "/events/:id",
+    name: "EventPage",
+    component: EventInfo,
+  },
+  {
     path: "/artists",
     name: "Artists",
     component: Artists,
+  },
+  {
+    path: "/artists/:id",
+    name: "ArtistPage",
+    component: ArtistInfo,
   },
   {
     path: "/news",

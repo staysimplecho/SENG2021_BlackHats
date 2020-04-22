@@ -6,9 +6,19 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import * as VueGoogleMaps from "vue2-google-maps";
 import { VueMasonryPlugin } from "vue-masonry";
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
+// import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
+import '@mdi/font/css/materialdesignicons.css'
 
-Vue.config.productionTip = false;
+Vue.config.producWtionTip = false;
 Vue.use(ElementUI);
+Vue.use(Vuetify);
+export default new Vuetify({
+  icons: {
+    iconfont: "mdi", // default - only for display purposes
+  },
+});
 Vue.use(VueMasonryPlugin);
 Vue.use(VueGoogleMaps, {
   load: {

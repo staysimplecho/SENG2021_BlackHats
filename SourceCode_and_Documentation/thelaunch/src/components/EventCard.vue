@@ -10,7 +10,7 @@
       <p>{{ description }}</p>
     </div>
     <div class="btn">
-      <el-button @click="toEventPage">Details</el-button>
+      <el-button @click="toEventPage(id)">Details</el-button>
     </div>
   </div>
 </template>
@@ -18,6 +18,12 @@
 <script>
 export default {
   props: {
+    id: {
+      type: Number,
+      default() {
+        return 0;
+      },
+    },
     name: {
       type: String,
       default() {
@@ -53,7 +59,11 @@ export default {
     return {};
   },
   methods: {
-    toEventPage() {},
+    toEventPage() {
+      this.$router.push( {
+        name:"Shows"
+      })
+    },
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div id="card-wrap">
+  <div id="card-wrap" @click="toThatArtist(id)">
     <div class="content-wrap">
       <div class="picture">
         <img :src="url" width="204px" />
@@ -21,6 +21,11 @@ export default {
     return {
       url: require("../assets/artists/img/" + this.id + ".jpg"),
     };
+  },
+  methods: {
+    toThatArtist(id) {
+      this.$router.push("/artists/" + id, { id: id });
+    },
   },
 };
 </script>
