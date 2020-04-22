@@ -31,19 +31,33 @@ users = []
 def get_data():
     global users
     return users
+
+def get_eventdata():
+    global events
+    return events
 SECRET = "MISHMASH" # The secret to encode token
 # User class to store data on users
+events = []
 class User:
     def __init__(self, email, password):
         self.email = email
         self.password = password
         self.u_id = 0
-        self.handle = 'anonymity'
+        self.username = 'anonymity'
         self.state = 0  # 0 - Unregistered, 1 - Registered/Logged in, 2 - Logged Out
         self.reset_code = None
         self.profile_image = ''
         self.channels = []
         self.status = 3 # 1 - SLACKR Owner, 2 - Admin, 3 - Member
+
+class Event:
+    def __init__(self, genre, singer, date):
+        self.genre = genre
+        self.singer = singer
+        self.date = date
+        self.e_id = 0
+        self.comments = ''
+
 @app.route('/echo/get', methods=['GET'])
 def echo1():
     """ Description of function """
@@ -147,9 +161,71 @@ def auth_passwordreset_reset():
         raise ValueError(f"Invalid password.")       # Resetting reset code to None
     return dumps({"is_success" : True})
 
+@app.route("/user/profile/setemail", methods=['PUT'])
+def setemail():
+    token = request.form.get('token')
+    email = request.form.get('email') 
+    user = get_user_for_token(token)
+    #check if the email is valid
+    result = valid_email(email) 
+    if result == -1:
+        raise ValueError(f"Email is already in use.") 
+    else:
+        raise ValueError(f"Invalid Email.") 
+    user.email = email
+    return dumps({"is_success" : True})
+
+@app.route("/setusername", methods=["PUT"])
+#PUT user/profile/setname (token, name_first, name_last) 
+def user_setname():
+    users = get_data()
+    token = request.form.get("token")
+    # check the length of frist name and last name
+    username = request.form.get("username")
+    if len(username) < 1 or len(username) > 50:
+        raise ValueError(f"username must be between 1 and 50 characters.") 
+    user = get_user_for_token(token)
+    user.username = username
+    return dumps({"is_success" : True})
+
+@app.route("/add_event", methods=["POST"])
+def add_event():
+    events = get_eventdata()
+    genre = request.form.get("genre")
+    singer = request.form.get("singer")
+    date = request.form.get("date")
+    # CHECKS FOR INVALID INFORMATION BELOW
+    # Checking whether email is valid
+    e_id = create_e_id()
+    # Creating a user and setting variables of the user
+    event = Event(genre, singer,date)       # User is set to logged in state
+    event.e_id = int(e_id)
+    # If this is the first account to register, they are set as admin
+    events.append(event)      # Appending the user to the list of users
+    return dumps({"e_id" : int(e_id)})
+
+@app.route("/add_comment", methods=["POST"])
+def add_comment():
+    events = get_eventdata()
+    e_id = request.form.get("e_id")
+    event = get_event_for_e_id(e_id)
+    comment = request.form.get("comment")
+    if len(comment) < 1 or len(comment) > 50:
+        raise ValueError(f"comment must be between 1 and 50 characters.") 
+    e_id = create_e_id()
+    # Creating a user and setting variables of the user
+    event = Event(genre, singer,date)       # User is set to logged in state
+    event.e_id = int(e_id)
+    # If this is the first account to register, they are set as admin
+    events.append(event)      # Appending the user to the list of users
+    return dumps({"e_id" : int(e_id)})
+
 def create_u_id():
     global users
     return str(len(users) + 1).zfill(5)
+def create_e_id():
+    global events
+    return str(len(events) + 1).zfill(5)
 def get_token(u_id):
     curr_time = datetime.now()
     token = jwt.encode({ "u_id" : u_id, "time" : curr_time.isoformat()}, SECRET, algorithm='HS256').decode('utf-8')
@@ -187,6 +263,13 @@ def get_user_for_token(token):
     for user in users:
         if (user.token == token):
             return user
+    return None
+
+def get_event_for_e_id(e_id):
+    global events
+    for event in events:
+        if (event.e_id == e_id):
+            return event
     return None
 if __name__ == '__main__':
     app.run(port=6000)
