@@ -78,7 +78,7 @@ def comment_post():
                  request.form.get('message'))
     return sendSuccess(comment_dict)
 
-@APP.route('/event/reply/post', methods=['POST'])
+@APP.route('/event/comment/reply', methods=['POST'])
 def reply_post():
     event_id = int(request.form.get('event_id'))
     comment_id = int(request.form.get('comment_id'))
