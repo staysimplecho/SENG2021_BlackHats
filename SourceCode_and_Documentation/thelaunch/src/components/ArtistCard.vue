@@ -2,7 +2,7 @@
   <div id="card-wrap" @click="toThatArtist(id)">
     <div class="content-wrap">
       <div class="picture">
-        <img :src="url" width="204px" />
+        <img :src="url" width="204px" object-fit="scale-down"/>
       </div>
       <div class="name-block">
         <span>{{ name }}</span>

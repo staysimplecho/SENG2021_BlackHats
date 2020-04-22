@@ -9,7 +9,9 @@ import { VueMasonryPlugin } from "vue-masonry";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 // import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
-import '@mdi/font/css/materialdesignicons.css'
+import '@mdi/font/css/materialdesignicons.css';
+import VueSimpleAlert from "vue-simple-alert";
+import SimpleVueValidation from "simple-vue-validator";
 
 Vue.config.producWtionTip = false;
 Vue.use(ElementUI);
@@ -27,6 +29,8 @@ Vue.use(VueGoogleMaps, {
   },
   installComponents: true,
 });
+Vue.use(VueSimpleAlert);
+Vue.use(SimpleVueValidation);
 
 new Vue({
   router,
