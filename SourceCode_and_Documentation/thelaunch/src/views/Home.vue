@@ -318,7 +318,7 @@ export default {
           color: black;
           background: #fc9779;
           width: auto;
-          font-family: "Avenir-LT-W01_35-Light1475496",sans-serif;
+          font-family: "Avenir-LT-W01_35-Light1475496", sans-serif;
           font-size: 16px;
           letter-spacing: 0.03em;
         }
