@@ -131,22 +131,20 @@ def auth_logout():
 
 # PASSWORD RESET REQUEST FUNCTION
 @app.route("/passwordreset", methods=["POST"])
-def auth_passwordreset_request():
+def auth_passwordreset_reset():
     users = get_data()
-    email = request.form.get("email")
-    user = get_user_for_email(email)
+    token = request.form.get("token")
+    user = get_user_for_token(token)    # Finding user for given token
+    if user is None:                    # If there is no user corresponding to token
+        return dumps({"is_success" : False})
+    new_password = request.form.get("password")
     if user is None:
-        raise ValueError(f"No user linked to that email.")
-    reset_code = gen_reset_code()       # Generating reset code
-    user.reset_code = reset_code        # Assigning reset code to user
-    # Sending reset code to user by email
-    # NOTE: If this errors, this will be picked up by the error handler and an error will be shown
-    mail = Mail(app)
-    msg = Message("SLACKR RESET PASSWORD",
-    sender="slackrskywalkers@gmail.com",
-    recipients=[email])
-    msg.body = "You've requested to reset your password. Your reset code is : " + reset_code + "."
-    mail.send(msg)
+        raise ValueError(f"Invalid reset code.")
+    # Check whether the password given is valid
+    if len(new_password) > 5:
+        user.password = hashpass(new_password)
+    else:
+        raise ValueError(f"Invalid password.")       # Resetting reset code to None
     return dumps({"is_success" : True})
 
 def create_u_id():
