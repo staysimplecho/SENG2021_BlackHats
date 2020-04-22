@@ -379,7 +379,7 @@
                 data-state="desktop shouldUseFlex center"
               >
                 <button
-                  style="cursor:pointer"
+                  style="cursor:pointer;outline:none;"
                   class="g-transparent-a style-ju102993link"
                 >
                   <span class="style-ju102993label">GET IN TOUCH</span>
@@ -432,21 +432,6 @@ export default {
     },
     onSubmit() {
       if (this.email && this.message) {
-        if (this.name) {
-          let contactForm = {
-            name: this.name,
-            email: this.email,
-            message: this.message,
-          };
-          this.$emit("contact-submitted", contactForm);
-        } else {
-          let contactForm = {
-            name: "Anonymous",
-            email: this.email,
-            message: this.message,
-          };
-          this.$emit("contact-submitted", contactForm);
-        }
         emailjs.init("user_fBAvAnY7neme7zZNIo6sP");
         emailjs
           .send(
@@ -461,10 +446,11 @@ export default {
           .then(
             (response) => {
               console.log("SUCCESS You just sent an email...", response);
-              alert("Request has been successfullt sent!");
+              this.$alert("Request has been successfullt sent!");
             },
             (error) => {
               console.log("FAILED Throw an error to user...", error);
+              this.$alert("Failed to send a request.");
             }
           );
         this.name = null;
