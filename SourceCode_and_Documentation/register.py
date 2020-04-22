@@ -117,6 +117,18 @@ def auth_login():
     user.token = get_token(user.u_id)
     user.state = 1 # Setting state to logged in
     return dumps({"u_id" : user.u_id, "token" : user.token})
+# LOGOUT FUNCTION
+@app.route("/auth/logout", methods=["POST"])
+def auth_logout():
+    token = request.form.get("token")
+    user = get_user_for_token(token)    # Finding user for given token
+    if user is None:                    # If there is no user corresponding to token
+        return dumps({"is_success" : False})
+    if user.state==2:               # If user is already logged out
+        return dumps({"is_success" : False})
+    user.state = 2                      # Changing the user's state to logged out
+    return dumps({"is_success" : True})
+    
 def create_u_id():
     global users
     return str(len(users) + 1).zfill(5)
