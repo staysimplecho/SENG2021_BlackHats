@@ -24,6 +24,14 @@
           <span>Sign Up | Log In</span>
         </button>
       </div>
+      <div class="user-status" v-else>
+        <button @click="toProfile()">
+          <div class="icon">
+            <img src="../assets/user-icon.svg" />
+          </div>
+          <span>m c</span>
+        </button>
+      </div>
       <div class="search">
         <el-input
           placeholder="Search..."
@@ -39,6 +47,7 @@
       :visible.sync="drawer"
       size="100%"
       custom-class="login-popup"
+      v-if="!finished"
     >
       <el-card style="background-color:black;border:none;margin-top:100px">
         <h2
@@ -128,6 +137,7 @@
                 type="primary"
                 native-type="submit"
                 block
+                @click="finishSignUp()"
                 >Sign Up</el-button
               >
             </el-form-item>
@@ -162,10 +172,11 @@ export default {
       innerDrawer: false,
       input: "",
       signUp: false,
-      loading:false,
+      loading: false,
+      finished: false,
       validCredentials: {
         email: "mc.huang.jl@gmail.com",
-        password: "lightscope"
+        password: "lightscope",
       },
       model: {
         email: null,
@@ -200,11 +211,21 @@ export default {
         name: "Home",
       });
     },
+    toProfile() {
+      this.$router.push({
+        name: "Profile",
+      });
+    },
     tosignUp() {
       this.signUp = true;
     },
+    finishSignUp() {
+      this.finished = true;
+      this.loggedIn = true;
+      this.$message.success("Login successfull");
+    },
     simulateLogin() {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         setTimeout(resolve, 800);
       });
     },
