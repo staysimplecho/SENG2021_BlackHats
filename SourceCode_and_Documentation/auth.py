@@ -61,7 +61,7 @@ def auth_logout(token):
     return True
 
 
-def auth_register(email, password, username):
+def auth_register(email, password, firstname, lastname):
     data = getData()
     check_valid_email(email)
     check_registered_email(email)
@@ -72,7 +72,8 @@ def auth_register(email, password, username):
     data['users'].append({
         'id' : u_id,
         'token' : str(token),
-        'username' : username,
+        'name_first' : firstname,
+        'name_last' : lastname,
         'password' : password,
         'phone_no' : '',
         'email' : email,

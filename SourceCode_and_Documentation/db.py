@@ -2,6 +2,7 @@ import pickle
 from json import dumps
 import jwt, pickle, os, threading, datetime, random
 from Error import AccessError, ValueError_http
+import re
 
 # import datetime
 
@@ -78,7 +79,8 @@ data = {
     'users' : [{
         'id' : 1,
         'token' : 'token123',
-        'username' : 'ilikecats123',
+        'name_first' : 'Sam',
+        'name_last' : 'Parker',
         'password' : 'temppassword123',
         'phone_no' : '0412345678',
         'email' : 'sam@gmail.com',
@@ -202,6 +204,13 @@ def getArtistFromArtistId(artist_id):
         if artist['id'] == artist_id:
             return artist
     raise ValueError_http("Invalid artist ID")
+
+def validEmail(email):
+    data = getData()
+    # need to include check for space
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", email) or " " in email:
+        raise ValueError_http("Invalid email")
+    return True
 
 # def reset_resetCode(email):
 #     for dicts in data['resetCode']:

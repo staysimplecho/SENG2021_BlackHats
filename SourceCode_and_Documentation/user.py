@@ -1,19 +1,26 @@
 from db import *
 
-def modify_details (token, username, phone_no, name):
+def modify_details (token, firstname, lastname, phone_no, email):
     data = getData()
     user = getUserFromToken(token)
-    if len(username) > 20:
-        raise ValueError_http("Username cannot be longer than 20 characters")
-    if len(phone_no) != 10:
-        raise ValueError_http("Invalid phone number")
-    if username == '':
-        username = user['username']
+    if firstname == '':
+        firstname = user['name_first']
+    if lastname == '':
+        lastname = user['name_last']
     if phone_no == '':
         phone_no = user['phone_no']
-    user['username'] = username
+    if email == '':
+        email = user['email']     
+    if len(firstname) > 20 or len(lastname) > 20:
+        raise ValueError_http("Name cannot be longer than 20 characters")
+    if len(phone_no) != 10:
+        raise ValueError_http("Invalid phone number")
+    validEmail(email)
+    user['name_first'] = firstname
+    user['name_last'] = lastname
     user['phone_no'] = phone_no
-
+    user['email'] = email
+    
     return (user)
 
 def event_save_unsave (token, event_id):

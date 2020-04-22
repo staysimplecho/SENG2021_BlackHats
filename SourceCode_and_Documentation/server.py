@@ -89,8 +89,10 @@ def reply_post():
 @APP.route('/user/update', methods=['POST'])
 def update_info():
     phone_no = request.form.get('phone_no')
-    username = request.form.get('username')
-    update = modify_details(request.form.get('token'), username, phone_no)
+    firstname = request.form.get('name_first')
+    lastname = request.form.get('name_last')
+    email = request.form.get('email')
+    update = modify_details(request.form.get('token'), firstname, lastname, phone_no, email)
     return sendSuccess (update)
 
 @APP.route('/user/save', methods=['POST'])
