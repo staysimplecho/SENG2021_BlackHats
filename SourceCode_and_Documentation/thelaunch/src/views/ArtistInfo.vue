@@ -5,7 +5,9 @@
       <div class="ar-photo">
         <img :src="url" width="240px" height="240px" />
       </div>
-      <div class="ar-link"></div>
+      <div class="ar-link">
+        <button class="ar-btn">Preview Songs</button>
+      </div>
       <div class="ar-info">
         <div class="info-name">{{ this.artist.name }}</div>
         <div class="info-genre">{{ this.artist.genre }}</div>
@@ -16,19 +18,31 @@
       <el-table :data="events" style="width: 100%" stripe>
         <el-table-column label="" width="125">
           <template slot-scope="scope">
-            <span style="margin-left: 10px">{{ scope.row.date }}</span>
+            <span style="margin-left: 10px; font-size:16px;color:white;">{{
+              scope.row.date
+            }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="" width="595">
+        <el-table-column label="" width="155">
           <template slot-scope="scope">
-            <span style="margin-left: 10px">{{
-              scope.row.location + "    " + scope.row.area
+            <span
+              style="margin-left: 10px; font-size:16px; font-weight: bold;color:white;"
+              >{{ scope.row.location }}</span
+            >
+          </template>
+        </el-table-column>
+        <el-table-column label="" width="440">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px; font-size:16px;color:white;">{{
+              scope.row.area
             }}</span>
           </template>
         </el-table-column>
         <el-table-column label="">
-          <template>
-            <el-button @click="handleNotification()">Notify Me</el-button>
+          <template slot-scope="scope">
+            <el-button @click="handleNotification(scope.row.id)"
+              >Notify Me</el-button
+            >
           </template>
         </el-table-column>
       </el-table>
@@ -54,14 +68,38 @@ export default {
   data() {
     return {
       artist: {
-        id: -1,
-        name: "DJ Chili Fingers",
-        genre: "House,Electronic",
+        id: 1,
+        name: "Halsey",
+        genre: "Pop, Electropop, Alternative Rock",
         description:
-          "Long Description crawled from artist's website/wiki.I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+          "Ashley Nicolette Frangipane, known professionally as Halsey, \
+          is an American singer and songwriter. Gaining attention from \
+          self-released music on social media platforms, she was signed \
+           by Astralwerks in 2014 and released her debut EP, Room 93, \
+           later that year.",
       },
       url: "",
       events: [
+        {
+          date: "12 Nov",
+          location: "The Venue",
+          area: "San Francisco, CA",
+        },
+        {
+          date: "12 Nov",
+          location: "The Venue",
+          area: "San Francisco, CA",
+        },
+        {
+          date: "12 Nov",
+          location: "The Venue",
+          area: "San Francisco, CA",
+        },
+        {
+          date: "12 Nov",
+          location: "The Venue",
+          area: "San Francisco, CA",
+        },
         {
           date: "12 Nov",
           location: "The Venue",
@@ -73,7 +111,7 @@ export default {
   methods: {
     getArtistInfo() {
       this.artist.id = this.$route.params.id;
-      this.url = require("../assets/artists/img/" + this.artist.id + ".jpg");
+      this.url = require("../assets/artists/" + this.artist.id + ".jpg");
       //axios get info
     },
     handleNotification() {},
@@ -92,7 +130,7 @@ export default {
     margin-top: 60px;
     display: grid;
     grid-template-columns: 520px 1fr 1fr 520px;
-    grid-template-rows: 300px 100px;
+    grid-template-rows: 250px 100px;
     .ar-photo {
       grid-row: 1;
       grid-column: 2;
@@ -100,6 +138,20 @@ export default {
     .ar-link {
       grid-row: 2;
       grid-column: 2;
+      .ar-btn {
+        outline: none;
+        width: 140px;
+        height: 30px;
+        background-color: transparent;
+        color: white;
+        border: solid white 2px;
+        font-size: 16px;
+        font-family: "DINNeuzeitGroteskLTW01-_812426", sans-serif;
+        &:hover {
+          border: none;
+          color: #fc9779;
+        }
+      }
     }
     .ar-info {
       grid-row: 1/3;
@@ -133,8 +185,44 @@ export default {
     flex-direction: column;
     align-items: center;
     .el-table {
+      .el-table__body tr.current-row > td {
+        background-color: transparent !important;
+      }
       width: 1000px !important;
+      color: white;
+      font-family: "Avenir-LT-W01_35-Light1475496", sans-serif;
+      .cell {
+        width: 100%;
+        .el-button {
+          background-color: transparent;
+          margin-left: calc((100% - 200px) * 0.5) !important;
+          width: 200px;
+          border: solid white 2px;
+          border-radius: 0;
+          padding-left: 24px;
+          font-size: 14px;
+          color: white;
+        }
+      }
     }
   }
+}
+.el-table,
+.el-table__expanded-cell {
+  background-color: transparent !important;
+}
+.el-table th,
+.el-table tr {
+  background-color: transparent !important;
+}
+
+.el-table--striped,
+.el-table__body tr.el-table__row--striped td {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.el-table--enable-row-hover,
+.el-table__body tr:hover > td {
+  background-color: transparent !important;
 }
 </style>

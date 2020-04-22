@@ -173,12 +173,12 @@ export default {
                 letter-spacing: 0.06em;
               }
               button {
+                font-family: "Avenir-LT-W01_85-Heavy1475544", sans-serif;
                 outline: none;
                 background-color: transparent;
                 border: solid rgba(0, 0, 0, 1) 3px;
                 border-radius: 0;
                 color: black;
-                font-weight: bold;
               }
             }
           }

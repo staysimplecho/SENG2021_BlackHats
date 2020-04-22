@@ -32,13 +32,15 @@
       <div class="list-content">
         <div class="card-wrap" v-for="event in 10" :key="event.id">
           <EventCard
+            :id="event.id"
             :name="event.name"
             :day="event.day"
             :date="event.date"
             :time="event.time"
+            :location="event.location"
             :description="event.description"
           ></EventCard>
-        </div>  
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -129,7 +131,7 @@ export default {
       min-height: 100vh;
       background: transparent;
       .card-wrap {
-        margin:30px 0px;
+        margin: 30px 0px;
       }
     }
   }

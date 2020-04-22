@@ -338,7 +338,10 @@ export default {
         .icon {
           width: 26px;
           height: 26px;
-          padding: 0px 14px;
+          margin: 0px 14px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         color: #fc9779;
         font-size: 14px;

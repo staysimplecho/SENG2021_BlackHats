@@ -67,52 +67,42 @@ export default {
       artists: [
         {
           id: 1,
-          name: "WHO",
+          name: "Rihana",
           description: "test description",
         },
         {
           id: 2,
-          name: "WHO",
+          name: "The Morrisons",
           description: "test description",
         },
         {
           id: 3,
-          name: "WHO",
+          name: "Triple One",
           description: "test description",
         },
         {
           id: 4,
-          name: "WHO",
+          name: "Bruce Springsteen",
           description: "test description",
         },
         {
           id: 5,
-          name: "WHO",
+          name: "Lake Street Dive",
           description: "test description",
         },
         {
           id: 6,
-          name: "WHO",
+          name: "SZA",
           description: "test description",
         },
         {
           id: 7,
-          name: "WHO",
+          name: "Halsey",
           description: "test description",
         },
         {
           id: 8,
-          name: "WHO",
-          description: "test description",
-        },
-        {
-          id: 9,
-          name: "WHO",
-          description: "test description",
-        },
-        {
-          id: 10,
-          name: "WHO",
+          name: "Andrew Bird",
           description: "test description",
         },
       ],

@@ -139,10 +139,11 @@ export default {
   line-height: 40px;
   color: #fff;
   .play-button {
+    height: 20px;
     .play-pause {
       cursor: pointer;
       border: 0;
-      margin: 10px 10px 10px 15px;
+      margin: 5px 10px 10px 15px;
       padding: 0px;
       background-color: #000000;
       outline: none;

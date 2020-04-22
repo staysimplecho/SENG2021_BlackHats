@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="imgBx">
-      <img src="../assets/artists/img/1.jpg" />
+      <img :src="url" />
     </div>
     <div class="content">
       <h2>{{ name }}</h2>
@@ -10,7 +10,9 @@
       <p>{{ description }}</p>
     </div>
     <div class="btn">
-      <el-button @click="toEventPage(id)">Details</el-button>
+      <el-button @click="toEventPage(id, name, day, date, time, description)"
+        >Details</el-button
+      >
     </div>
   </div>
 </template>
@@ -21,7 +23,7 @@ export default {
     id: {
       type: Number,
       default() {
-        return 0;
+        return 1;
       },
     },
     name: {
@@ -48,6 +50,12 @@ export default {
         return "9:00PM";
       },
     },
+    location: {
+      type: String,
+      default() {
+        return "ivy Den, Lounge & Terrace";
+      },
+    },
     description: {
       type: String,
       default() {
@@ -56,11 +64,23 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      url: require("../assets/artists/" + this.id + ".jpg")
+    };
   },
   methods: {
-    toEventPage(id) {
-      this.$router.push("/events/" + id, { id: id });
+    toEventPage(id, name, day, date, time, description) {
+      this.$router.push({
+        name: "EventPage",
+        params: {
+          id: id,
+          name: name,
+          day: day,
+          date: date,
+          time: time,
+          description: description,
+        },
+      });
     },
   },
 };

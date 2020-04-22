@@ -5,6 +5,7 @@
     <div class="display-wrap">
       <el-carousel height="580px" width="100%">
         <el-carousel-item v-for="item in display" :key="item.id">
+          <img :src="item.url" class="carousel_image_type" />
           <div class="info-wrap">
             <div class="artist">
               {{ item.name + "." }}
@@ -14,7 +15,7 @@
               <div class="info-time">{{ item.time }}</div>
               <div class="info-location">{{ item.location }}</div>
               <div class="info-button">
-                <el-button @click="navigate()"
+                <el-button @click="toEventPage(item.id)"
                   >GET TICKETS
                   <div class="arrow-bar">
                     <img
@@ -30,7 +31,7 @@
       </el-carousel>
     </div>
     <!-- Upcoming events -->
-    <div class="upcoming-wrap">
+    <div class="upcoming-title-wrap">
       <div class="upcoming-box">
         <div class="top-bar-wrap">
           <img src="../assets/white-bar.svg" height="3px" width="300px" />
@@ -98,6 +99,15 @@
     </div>
     <!-- Upcoming Event list -->
     <Upcoming></Upcoming>
+    <div class="btn-wrap">
+      <div class="more-button">
+        <el-button @click="toAllEvents()"
+          >SEE MORE
+          <div class="arrow-bar">
+            <img src="../assets/arrow.svg" height="15px" width="40px" /></div
+        ></el-button>
+      </div>
+    </div>
     <Footer></Footer>
     <Player></Player>
   </div>
@@ -122,24 +132,27 @@ export default {
     return {
       display: [
         {
-          id: 0,
+          id: 1,
           name: "The Generator",
           date: "SUNDAY APR.4",
           time: "7:00PM",
-          location: "FT. GOLDCOUNTRY",
-        },
-        {
-          id: 1,
-          name: "The Generator1",
-          date: "SUNDAY APR.5",
-          time: "8:00PM",
+          url: require("../assets/artists/1.jpg"),
           location: "FT. GOLDCOUNTRY",
         },
         {
           id: 2,
+          name: "The Generator1",
+          date: "SUNDAY APR.5",
+          time: "8:00PM",
+          url: require("../assets/artists/2.jpg"),
+          location: "FT. GOLDCOUNTRY",
+        },
+        {
+          id: 3,
           name: "The Generator2",
           date: "SUNDAY APR.6",
           time: "9:00PM",
+          url: require("../assets/artists/3.jpg"),
           location: "FT. GOLDCOUNTRY",
         },
       ],
@@ -155,13 +168,17 @@ export default {
     };
   },
   methods: {
-    navigate() {
-      return true;
+    toEventPage(id) {
+      this.$router.push({ name: "EventPage", params: { id: id } });
+    },
+    toAllEvents() {
+      this.$router.push("/events");
     },
     openWindow() {
       this.window_open = true;
     },
   },
+  mounted() {},
 };
 </script>
 
@@ -172,6 +189,12 @@ export default {
   //display wrap
   .display-wrap {
     position: relative;
+    .carousel_image_type {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
     .info-wrap {
       overflow: visible;
       position: absolute;
@@ -226,7 +249,7 @@ export default {
             border: none;
             border-radius: 0;
             color: black;
-            font-weight: bold;
+            font-family: "Avenir-LT-W01_85-Heavy1475544", sans-serif;
             .arrow-bar {
               position: absolute;
               z-index: -1;
@@ -242,13 +265,22 @@ export default {
                 margin-left: 30px;
               }
             }
+            &:hover {
+              color: #fc9779;
+              background: black;
+              background-color: black;
+              .arrow-bar {
+                width: 100px;
+                right: 130px;
+              }
+            }
           }
         }
       }
     }
   }
-  //upcoming-wrap
-  .upcoming-wrap {
+  //upcoming-title-wrap
+  .upcoming-title-wrap {
     margin-top: 30px;
     margin-bottom: 80px;
     display: flex;
@@ -331,6 +363,56 @@ export default {
     margin-bottom: 50px;
   }
 
-  // Upcoming Event List
+  // more button
+  .btn-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    .more-button {
+      width: 230px;
+      height: 66px;
+      background-color: #fc9779;
+      display: flex;
+      align-items: center;
+      button {
+        z-index: 999;
+        position: relative;
+        margin-left: 20px;
+        height: 45px;
+        width: 140px;
+        outline: solid rgba(0, 0, 0, 1) 3px;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        color: black;
+        font-family: "Avenir-LT-W01_85-Heavy1475544", sans-serif;
+        .arrow-bar {
+          position: absolute;
+          z-index: -1;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 220px;
+          height: 25px;
+          background-color: white;
+          top: calc((100% - 25px) * 0.5);
+          right: 10px;
+          img {
+            margin-left: 30px;
+          }
+        }
+        &:hover {
+          color: #fc9779;
+          background: black;
+          background-color: black;
+          .arrow-bar {
+            width: 90px;
+            right: 140px;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

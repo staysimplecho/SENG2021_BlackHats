@@ -19,12 +19,12 @@ export default {
   },
   data() {
     return {
-      url: require("../assets/artists/img/" + this.id + ".jpg"),
+      url: require("../assets/artists/" + this.id + ".jpg"),
     };
   },
   methods: {
     toThatArtist(id) {
-      this.$router.push("/artists/" + id, { id: id });
+      this.$router.push({ name: "ArtistPage", params: { id: id } });
     },
   },
 };
