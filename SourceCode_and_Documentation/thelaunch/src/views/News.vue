@@ -21,7 +21,7 @@
           v-show="index < newsToShow"
         >
           <div class="border-line"></div>
-          <div style="padding:30px;overflow:hidden;margin:0px 15%;">
+          <div style="padding:30px;overflow:hidden;margin:0px 10%;">
             <section style="overflow:hidden;">
               <div class="news-title">
                 <h2 style="inline-height:1.4em;font-size:20px;">
@@ -66,9 +66,15 @@
                       :src="article.urlToImage"
                     />
                     <span v-else>
-                      <span style="position:absolute;margin-left:80px;margin-top:60px;"><u>No picture provided.</u></span>
-                      <br>
-                      <span style="position:absolute;margin-left:40px;margin-top:70px;"><u>Click link to see more information.</u></span>
+                      <span
+                        style="position:absolute;margin-left:80px;margin-top:60px;"
+                        ><u>No picture provided.</u></span
+                      >
+                      <br />
+                      <span
+                        style="position:absolute;margin-left:40px;margin-top:70px;"
+                        ><u>Click link to see more information.</u></span
+                      >
                     </span>
                   </picture>
                 </a>
@@ -172,12 +178,11 @@ export default {
       padding: 80px 0px;
       background-color: #000;
       overflow: hidden;
-      height: 180px;
-      min-height: 150px;
+      height: 280px;
+      min-height: 280px;
       .news-title {
         float: left;
         width: 28%;
-        margin-top: -15px;
         h2 {
           font: normal normal normal 54px/1.4em anton, sans-serif;
           color: #ffffff;
@@ -214,7 +219,7 @@ export default {
       }
       .news-img {
         float: left;
-        width: 300px;
+        width: 280px;
         height: 200px;
         background-color: #ccc;
         /*background-image: url("");*/
@@ -265,7 +270,7 @@ export default {
   }
 }
 .border-line {
-  margin: 0px 15%;
+  margin: 0px 12%;
   box-sizing: border-box;
   border: 1px solid rgba(27, 27, 27, 1);
   height: 0;
