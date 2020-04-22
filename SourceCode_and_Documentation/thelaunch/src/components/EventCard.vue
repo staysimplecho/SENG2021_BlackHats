@@ -59,10 +59,8 @@ export default {
     return {};
   },
   methods: {
-    toEventPage() {
-      this.$router.push( {
-        name:"Shows"
-      })
+    toEventPage(id) {
+      this.$router.push("/events/" + id, { id: id });
     },
   },
 };

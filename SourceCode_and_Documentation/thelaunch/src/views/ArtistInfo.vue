@@ -45,7 +45,7 @@ import Player from "@/components/Player.vue";
 // import axios from "axios";
 
 export default {
-  name: "Artists",
+  name: "ArtistPage",
   components: {
     Header,
     Footer,
