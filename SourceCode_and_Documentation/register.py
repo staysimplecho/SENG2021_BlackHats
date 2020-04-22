@@ -7,7 +7,7 @@ import re
 import hashlib
 from flask_cors import CORS
 from flask import Flask, request, jsonify
-from flask_mail import Mail, Message
+#from flask_mail import Mail, Message
 from werkzeug.exceptions import HTTPException
 import jwt
 regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
@@ -16,6 +16,7 @@ app = Flask(__name__)
 CORS(app)
 # SETUP OF ERROR HANDLER ABOVE
 # SETUP OF EMAIL BELOW
+"""
 app.config.update(
     MAIL_SERVER='smtp.163.com',
     MAIL_PORT=465,
@@ -23,6 +24,7 @@ app.config.update(
     MAIL_USERNAME='lijiatao_sjz@163.com',
     MAIL_PASSWORD="1230OO1LLll!"
 )
+"""
 # SETUP OF EMAIL ABOVE
 # registered_users = {} # {u_id : email, token}
 users = []
@@ -116,6 +118,7 @@ def auth_logout():
     user.state = 2                      # Changing the user's state to logged out
     return dumps({"is_success" : True})
 # PASSWORD RESET REQUEST FUNCTION
+"""
 @app.route("/user/passwordreset/request", methods=["POST"])
 def auth_passwordreset_request():
     users = get_data()
@@ -134,7 +137,7 @@ def auth_passwordreset_request():
     msg.body = "You've requested to reset your password. Your reset code is : " + reset_code + "."
     mail.send(msg)
     return dumps({"is_success" : True})
-
+"""
 def create_u_id():
     global users
     return str(len(users) + 1).zfill(5)
