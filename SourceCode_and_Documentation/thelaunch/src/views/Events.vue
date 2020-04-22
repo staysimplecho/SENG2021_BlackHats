@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="list-content">
-        <div class="card-wrap" v-for="event in 10" :key="event.id">
+        <div class="card-wrap" v-for="event in events" :key="event.id">
           <EventCard
             :id="event.id"
             :name="event.name"
@@ -64,7 +64,111 @@ export default {
   },
   data() {
     return {
-      events: [],
+      events: [
+        {
+          id: 1,
+          name: "Hayley Wilson",
+          day: "Thu",
+          date: "23 Apr",
+          time: "7:00PM GMT+10",
+          location: "Streaming LIVE",
+          description:
+            "Hayley Wilson is a modern songstress whose light, effortless voice melts with the music in every song she sings. Though don’t for one second think that effortless sound was not earned! After being taught guitar by her older brother, Hayley then spent many years training in voice, guitar and piano and honing her skills.",
+        },
+        {
+          id: 2,
+          name: "Bruno Major",
+          day: "Thu",
+          date: "23 Apr",
+          time: "9:00PM GMT+10",
+          location: "Live Stream Tour - Songs for Sydney",
+          description:
+            "Bruno Major splices classic singer/songwriter confessionals with sleek modern electronic production, girding the entire enterprise with hints of soul. ",
+        },
+        {
+          id: 3,
+          name: "John Smith",
+          day: "Thu",
+          date: "23 Apr",
+          time: "2:00AM GMT+10",
+          location: "Streaming LIVE - Live in Chester",
+          description:
+            "John Smith is told almost every day that he has the most common name in the world. However, other than the name, there is nothing commonplace about him. John has played to audiences all over the world, in living rooms, festival tents and sold-out concert halls. He tours relentlessly with a guitar and a suitcase, sometimes with a small band, always looking to communicate through a song and to share something intangible with those willing to listen.",
+        },
+        {
+          id: 4,
+          name: "Enamour",
+          day: "Thu",
+          date: "23 Apr",
+          time: "3:00AM GMT+10",
+          location: "Streaming LIVE",
+          description:
+            "As a curator of infectious grooves and wistful atmospheres, Enamour has developed a sound that delicately walks the line between deep introspection and pure club play. His sets are an intricate blend of deep, progressive, tech house and techno that values musicality over anything else.",
+        },
+        {
+          id: 5,
+          name: "Catherine Britt",
+          day: "Fri",
+          date: "24 Apr",
+          time: "8:00PM GMT+10",
+          location: "Songs and Stories Live",
+          description:
+            "Catherine spent 6 years in Nashville and has toured, performed and recorded with some of music’s most respected names - Kasey Chambers, Paul Kelly, Sir Elton John, Shane Nicholson, Jerry Salley, Tim Rogers, Dave Faulkner, John Waters & Kenny Chesney - and has worked with some of Australia’s and Americas finest producers.",
+        },
+        {
+          id: 6,
+          name: "Katanak",
+          day: "Fri",
+          date: "24 Apr",
+          time: "8:00PM GMT+10",
+          location: "Live from 'The Lounge'",
+          description:
+            "Fresh, groovy & youthful. Blending indie pop, alt pop with indie rock undertones and taking influence from the creative styles of The Wombats, The 1975 & Two Door Cinema Club.",
+        },
+        {
+          id: 7,
+          name: "fredo disco",
+          day: "Sat",
+          date: "25 Apr",
+          time: "11:00AM GMT+10",
+          location: "Streaming LIVE",
+          description: `hi i'm fredo.
+i am 18.
+my real name is fredo fosco but my phone always autocorrects it to disco so here we are.
+these are some songs that i write and record.
+there are also a couple covers.
+enjoy my tunes, eat some food, and have a good time.`,
+        },
+        {
+          id: 8,
+          name: "Ghastly",
+          day: "Sat",
+          date: "25 Apr",
+          time: "12:00PM GMT+10",
+          location: "Streaming LIVE",
+          description: "sup im the ghost kid.",
+        },
+        {
+          id: 9,
+          name: "Dan Smalley",
+          day: "Sat",
+          date: "25 Apr",
+          time: "12:30PM GMT+10",
+          location: "Streaming LIVE",
+          description:
+            "Dan Smalley may just now be making a name for himself, but he already sings with the voice of experience. And he’s got the bullet scars to prove it. ",
+        },
+        {
+          id: 10,
+          name: "Khanvict",
+          day: "Sat",
+          date: "25 Apr",
+          time: "1:00PM GMT+10",
+          location: "Streaming LIVE",
+          description:
+            "Surrey based Asad Khan (aka Khanvict) is an escape artist. His love for lush strings, cinematic swells, and a West Coast bass music punch instantly transports the listener – conjuring visions of desert expanses and dense jungle paradises. His live set is awe-inspiring, featuring a custom hardware and software rig, lighting package, and LED screens – all tracking his movements and gestures and projecting his expansive vision in a highly synchronized and magnetic manner.",
+        },
+      ],
     };
   },
   methods: {
