@@ -65,7 +65,7 @@ export default {
   },
   data() {
     return {
-      url: require("../assets/artists/" + this.id + ".jpg")
+      url: require("../assets/events/" + this.id + ".jpg")
     };
   },
   methods: {

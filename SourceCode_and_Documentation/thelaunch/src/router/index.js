@@ -7,6 +7,7 @@ import News from "../views/News.vue";
 import Contact from "../views/Contact.vue";
 import EventInfo from "../views/EventInfo.vue";
 import ArtistInfo from "../views/ArtistInfo.vue";
+import Profile from "../views/Profile.vue";
 
 Vue.use(VueRouter);
 
@@ -51,16 +52,13 @@ const routes = [
     name: "Contact",
     component: Contact,
   },
-  // {
-  //   path: "/news/newsinfo",
-  //   name: "NewsInfo",
-  //   component: NewsInfo,
-  // },
-  // {
-  //   path: "/profile",
-  //   name: "Profile",
-  //   component: Profile,
-  // },
+  // :id
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+    children:[]
+  },
 ];
 
 const router = new VueRouter({

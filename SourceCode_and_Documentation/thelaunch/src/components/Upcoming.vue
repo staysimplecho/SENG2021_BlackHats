@@ -15,7 +15,7 @@
                     </div>
                   </span></v-col
                 >
-                <v-col class="item-artist">{{ item.artist }}</v-col>
+                <v-col class="item-artist">{{ item.name }}</v-col>
               </v-row>
               <v-col class="item-link">
                 <button class="link-btn" @click="toEventPage(item.id)">
@@ -45,40 +45,48 @@ export default {
     return {
       events: [
         {
-          id: 0,
-          day: "Mon",
-          date: "04",
-          month: "May",
-          time: "9:00PM",
-          location:
-            "Hordern Pavilion, 1 Driver Ave, Moore Park NSW 2021, Australia",
-          artist: "Black On Black",
+          id: 3,
+          name: "John Smith",
+          day: "Thu",
+          date: "23",
+          month: "Apr",
+          time: "2:00AM",
+          location: "Streaming LIVE - Live in Chester",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "John Smith is told almost every day that he has the most common name in the world. However, other than the name, there is nothing commonplace about him. John has played to audiences all over the world, in living rooms, festival tents and sold-out concert halls. He tours relentlessly with a guitar and a suitcase, sometimes with a small band, always looking to communicate through a song and to share something intangible with those willing to listen.",
+        },
+        {
+          id: 4,
+          name: "Enamour",
+          day: "Thu",
+          date: "23",
+          month: "Apr",
+          time: "3:00AM",
+          location: "Streaming LIVE",
+          description:
+            "As a curator of infectious grooves and wistful atmospheres, Enamour has developed a sound that delicately walks the line between deep introspection and pure club play. His sets are an intricate blend of deep, progressive, tech house and techno that values musicality over anything else.",
         },
         {
           id: 1,
-          day: "Mon",
-          date: "04",
-          month: "May",
-          time: "9:00PM",
-          location:
-            "Hordern Pavilion, 1 Driver Ave, Moore Park NSW 2021, Australia",
-          artist: "Black On Black",
+          name: "Hayley Wilson",
+          day: "Thu",
+          date: "23",
+          month: "Apr",
+          time: "7:00PM",
+          location: "Streaming LIVE",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Hayley Wilson is a modern songstress whose light, effortless voice melts with the music in every song she sings. Though don’t for one second think that effortless sound was not earned! After being taught guitar by her older brother, Hayley then spent many years training in voice, guitar and piano and honing her skills.",
         },
         {
           id: 2,
-          day: "Mon",
-          date: "04",
-          month: "May",
+          name: "Bruno Major",
+          day: "Thu",
+          date: "23",
+          month: "Apr",
           time: "9:00PM",
-          location:
-            "Hordern Pavilion, 1 Driver Ave, Moore Park NSW 2021, Australia",
-          artist: "Black On Black",
+          location: "Live Stream Tour - Songs for Sydney",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Bruno Major splices classic singer/songwriter confessionals with sleek modern electronic production, girding the entire enterprise with hints of soul. ",
         },
       ],
     };

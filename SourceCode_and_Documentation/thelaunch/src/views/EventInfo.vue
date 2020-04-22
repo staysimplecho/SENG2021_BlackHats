@@ -7,8 +7,8 @@
       </div>
       <div class="event-info_artist">{{ event.name }}</div>
       <div class="event-info_description">{{ event.description }}</div>
-      <button class="event-info_btn">BOOK NOW</button>
-      <img class="event-info_img" src="../assets/artists/test.jpg" />
+      <button class="event-info_btn" @click="toTicketPage()">BOOK NOW</button>
+      <img class="event-info_img" :src="url" />
       <div class="event-info_extend">
         <div class="event-info_extend_title">Time & Location</div>
         <div class="event-info_extend_time">
@@ -38,7 +38,7 @@
             :opened="window_open"
             :position="infowindow"
           >
-            <b>UNSW</b>
+            <b>Home</b>
           </gmap-info-window>
         </GmapMap>
       </div>
@@ -63,33 +63,43 @@ export default {
   },
   data() {
     return {
+      url: "",
       event: {
-        id: 0,
-        name: "The Sunday Brunches",
-        day: "Sat",
-        date: "21 Mar",
-        time: "7:30PM",
-        location: "ivy Den, Lounge & Terrace",
-        lo_precise: "Level 2/330 George St, Sydney NSW 2000, Australia",
+        id: 4,
+        name: "Enamour",
+        day: "Thu",
+        date: "23 Apr",
+        time: "3:00AM GMT+10",
+        location: "Streaming LIVE",
+        lo_precise: "Online Platform",
         description:
-          "I’m an event description. To edit the event description go to My Events. Simply click Manage Events and start editing your event details. I’m a great place to get your guests excited by telling them a little more about your upcoming events.",
+          "As a curator of infectious grooves and wistful atmospheres, Enamour has developed a sound that delicately walks the line between deep introspection and pure club play. His sets are an intricate blend of deep, progressive, tech house and techno that values musicality over anything else.",
       },
       //maps
-      center: { lat: -33.8665297, lng: 151.2069201 },
+      center: { lat: -33.9435913, lng: 151.2219017 },
       markers: [
         {
-          position: { lat: -33.8665297, lng: 151.2069201 },
+          position: { lat: -33.9435913, lng: 151.2219017 },
         },
       ],
-      infowindow: { lat: -33.916, lng: 151.22884 },
+      infowindow: { lat: -33.9425913, lng: 151.2219017 },
       window_open: false,
     };
   },
   methods: {
     getEventInfo() {
       this.event.id = this.$route.params.id;
-      this.url = require("../assets/artists/" + this.event.id + ".jpg");
+      this.url = require("../assets/events/" + this.event.id + "_large.jpg");
       //axios get info
+    },
+    openWindow() {
+      this.window_open = true;
+    },
+    toTicketPage() {
+      window.open(
+        "https://www.bandsintown.com/t/102190707?app_id=1640370bd8cf5d04b5b855b801530c46&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=ticket",
+        "_blank"
+      );
     },
   },
 
@@ -106,20 +116,22 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
     text-align: center;
     &_timelocation {
+      color: white;
       width: 560px;
       font-size: 18px;
       font-family: "Avenir-LT-W01_35-Light1475496", sans-serif;
     }
     &_artist {
+      color: white;
       margin-bottom: 20px;
       width: 560px;
       font-size: 60px;
       font-family: "Anton", sans-serif;
     }
     &_description {
+      color: white;
       margin-bottom: 40px;
       width: 560px;
       font-size: 16px;
@@ -127,6 +139,7 @@ export default {
       font-family: "Avenir-LT-W01_35-Light1475496", sans-serif;
     }
     &_btn {
+      outline: none;
       margin-bottom: 40px;
       width: 170px;
       height: 50px;
@@ -142,6 +155,7 @@ export default {
       height: 400px;
     }
     &_extend {
+      color: white;
       margin-bottom: 40px;
       width: 900px;
       display: flex;

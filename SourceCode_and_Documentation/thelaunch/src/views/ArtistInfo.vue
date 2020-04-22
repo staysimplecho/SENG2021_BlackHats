@@ -23,7 +23,7 @@
             }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="" width="155">
+        <el-table-column label="" width="295">
           <template slot-scope="scope">
             <span
               style="margin-left: 10px; font-size:16px; font-weight: bold;color:white;"
@@ -31,7 +31,7 @@
             >
           </template>
         </el-table-column>
-        <el-table-column label="" width="440">
+        <el-table-column label="" width="300">
           <template slot-scope="scope">
             <span style="margin-left: 10px; font-size:16px;color:white;">{{
               scope.row.area
@@ -81,29 +81,29 @@ export default {
       url: "",
       events: [
         {
-          date: "12 Nov",
-          location: "The Venue",
-          area: "San Francisco, CA",
+          date: "22 Apr",
+          location: "Streaming LIVE",
+          area: "LIVE ONLINE",
         },
         {
-          date: "12 Nov",
-          location: "The Venue",
-          area: "San Francisco, CA",
+          date: "02 Jun",
+          location: "White River Amphitheater",
+          area: "Seattle, WA",
         },
         {
-          date: "12 Nov",
-          location: "The Venue",
-          area: "San Francisco, CA",
+          date: "04 Jun",
+          location: "Sunlight Supply Amphitheater",
+          area: "Portland, OR",
         },
         {
-          date: "12 Nov",
-          location: "The Venue",
-          area: "San Francisco, CA",
+          date: "06 Jun",
+          location: "Shoreline Amphitheater",
+          area: "Mountain View, CA",
         },
         {
-          date: "12 Nov",
-          location: "The Venue",
-          area: "San Francisco, CA",
+          date: "07 Jun",
+          location: "Golden 1 Center",
+          area: "Sacramento, CA",
         },
       ],
     };
