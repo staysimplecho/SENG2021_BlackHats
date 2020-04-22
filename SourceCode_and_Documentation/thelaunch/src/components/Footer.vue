@@ -6,7 +6,7 @@
           <p>STAY UP TO DATE</p>
         </div>
         <div class="stripe-wrap">
-          <img src="../assets/stripe.svg" height="14px" width="800px"/>
+          <img src="../assets/stripe.svg" height="14px" width="800px" />
         </div>
         <div style="width: 100%; background-color: #fc9779;">
           <div
@@ -26,6 +26,7 @@
                   v-model="form.email"
                   placeholder="Enter your email here*"
                 ></el-input>
+                <div class="message">{{ validation.firstError("form.email") }}</div>
               </el-form-item>
               <el-form-item>
                 <el-button @click="onSubmit">Subscribe </el-button>
@@ -49,6 +50,8 @@
 </template>
 
 <script>
+import emailjs from "emailjs-com";
+import { Validator } from "simple-vue-validator";
 export default {
   data() {
     return {
@@ -57,9 +60,37 @@ export default {
       },
     };
   },
+  validators: {
+    "form.email": function(value) {
+      return Validator.value(value)
+        .required()
+        .email();
+    },
+  },
   methods: {
     onSubmit() {
-      console.log("submit!");
+      if (this.form.email) {
+        this.$validate().then((success) => {
+          if (success) {
+            emailjs.init("user_fBAvAnY7neme7zZNIo6sP");
+            emailjs
+              .send("gmail", "email_subscribe", {
+                email: this.form.email,
+              })
+              .then(
+                (response) => {
+                  console.log("Subscribe successfully", response);
+                  this.$alert("Subscribe successfully.");
+                },
+                (error) => {
+                  console.log("Failed to subscribe!", error);
+                  this.$alert("Failed to subscribe, please try again!");
+                }
+              );
+            this.form.email = null;
+          }
+        });
+      }
     },
   },
 };
