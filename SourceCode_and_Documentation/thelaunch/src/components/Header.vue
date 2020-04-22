@@ -35,7 +35,7 @@
     </div>
     <!-- popup Signup / Login -->
     <el-drawer
-      title="我是外面的 Drawer"
+      title=""
       :visible.sync="drawer"
       size="100%"
       custom-class="login-popup"
