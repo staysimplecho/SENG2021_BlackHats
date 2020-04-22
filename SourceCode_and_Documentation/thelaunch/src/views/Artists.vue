@@ -38,7 +38,7 @@
         item-selector=".item"
       >
         <div v-masonry-tile class="item" v-for="item in artists" :key="item.id">
-          <Card :name="item.name" :id="item.id"></Card>
+          <ArtistCard :name="item.name" :id="item.id"></ArtistCard>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Player from "@/components/Player.vue";
-import Card from "@/components/Card.vue";
+import ArtistCard from "@/components/ArtistCard.vue";
 // import axios from "axios";
 
 export default {
@@ -60,7 +60,7 @@ export default {
     Header,
     Footer,
     Player,
-    Card,
+    ArtistCard,
   },
   data() {
     return {

@@ -29,7 +29,17 @@
           </div>
         </div>
       </div>
-      <div class="list-content"></div>
+      <div class="list-content">
+        <div class="card-wrap" v-for="event in 10" :key="event.id">
+          <EventCard
+            :name="event.name"
+            :day="event.day"
+            :date="event.date"
+            :time="event.time"
+            :description="event.description"
+          ></EventCard>
+        </div>  
+      </div>
     </div>
     <Footer></Footer>
     <Player></Player>
@@ -38,6 +48,7 @@
 
 <script>
 import Header from "@/components/Header.vue";
+import EventCard from "@/components/EventCard.vue";
 import Footer from "@/components/Footer.vue";
 import Player from "@/components/Player.vue";
 
@@ -45,8 +56,17 @@ export default {
   name: "Shows",
   components: {
     Header,
+    EventCard,
     Footer,
     Player,
+  },
+  data() {
+    return {
+      events: [],
+    };
+  },
+  methods: {
+    getEvents() {},
   },
 };
 </script>
@@ -93,6 +113,23 @@ export default {
           bottom: -12px;
           right: 0;
         }
+      }
+    }
+    .list-content {
+      grid-row: 2;
+      grid-column: 2;
+      justify-self: center;
+      margin: 0;
+      padding: 0;
+      width: 890px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      min-height: 100vh;
+      background: transparent;
+      .card-wrap {
+        margin:30px 0px;
       }
     }
   }
