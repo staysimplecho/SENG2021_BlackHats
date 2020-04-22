@@ -292,7 +292,7 @@
                         data-content="z5141464@unsw.edu.au"
                         href="mailto:z5141464@unsw.edu.au"
                         data-type="mail"
-                        >z5141464@unsw.edu.au</a
+                        >2020thelaunch@gmail.com</a
                       ></object
                     ></span
                   ></span
