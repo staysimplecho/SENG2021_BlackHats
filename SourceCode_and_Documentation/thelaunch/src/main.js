@@ -8,7 +8,6 @@ import * as VueGoogleMaps from "vue2-google-maps";
 import { VueMasonryPlugin } from "vue-masonry";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
-// import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
 import '@mdi/font/css/materialdesignicons.css';
 import VueSimpleAlert from "vue-simple-alert";
 import SimpleVueValidation from "simple-vue-validator";

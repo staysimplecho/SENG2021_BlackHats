@@ -8,6 +8,8 @@ import Contact from "../views/Contact.vue";
 import EventInfo from "../views/EventInfo.vue";
 import ArtistInfo from "../views/ArtistInfo.vue";
 import Profile from "../views/Profile.vue";
+import Account from "../components/Account.vue";
+import Calendar from "../components/Calendar.vue";
 
 Vue.use(VueRouter);
 
@@ -57,7 +59,16 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
-    children:[]
+    children: [
+      {
+        path: "calendar",
+        component: Calendar,
+      },
+      {
+        path: "account",
+        component: Account,
+      },
+    ],
   },
 ];
 
