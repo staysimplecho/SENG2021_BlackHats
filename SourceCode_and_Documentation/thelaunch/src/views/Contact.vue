@@ -407,7 +407,7 @@ export default {
   components: {
     Header,
     Footer,
-    Player,
+    Player
   },
   data() {
     return {
@@ -419,11 +419,11 @@ export default {
       center: { lat: -33.91758, lng: 151.22884 },
       markers: [
         {
-          position: { lat: -33.91758, lng: 151.22884 },
-        },
+          position: { lat: -33.91758, lng: 151.22884 }
+        }
       ],
       infowindow: { lat: -33.916, lng: 151.22884 },
-      window_open: false,
+      window_open: false
     };
   },
   methods: {
@@ -440,15 +440,15 @@ export default {
             {
               name: this.name,
               email: this.email,
-              message: this.message,
+              message: this.message
             }
           )
           .then(
-            (response) => {
+            response => {
               console.log("SUCCESS You just sent an email...", response);
-              this.$alert("Request has been successfullt sent!");
+              this.$alert("Request has been successfully sent!");
             },
-            (error) => {
+            error => {
               console.log("FAILED Throw an error to user...", error);
               this.$alert("Failed to send a request.");
             }
@@ -457,8 +457,8 @@ export default {
         this.email = null;
         this.message = null;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
