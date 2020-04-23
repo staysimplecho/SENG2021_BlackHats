@@ -16,6 +16,7 @@
     "register-service-worker": "^1.7.1",
     "simple-vue-validator": "^0.16.0",
     "vue": "^2.6.11",
+    "vue-fullcalendar": "^1.0.9",
     "vue-masonry": "^0.11.8",
     "vue-moment": "^4.1.0",
     "vue-router": "^3.1.6",

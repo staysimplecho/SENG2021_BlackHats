@@ -11,6 +11,9 @@ import "vuetify/dist/vuetify.min.css";
 import '@mdi/font/css/materialdesignicons.css';
 import VueSimpleAlert from "vue-simple-alert";
 import SimpleVueValidation from "simple-vue-validator";
+import fullCalendar from 'vue-fullcalendar'
+
+Vue.component('full-calendar', fullCalendar)
 
 Vue.config.producWtionTip = false;
 Vue.use(ElementUI);

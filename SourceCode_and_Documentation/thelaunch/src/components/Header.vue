@@ -29,7 +29,7 @@
           <div class="icon">
             <img src="../assets/user-icon.svg" />
           </div>
-          <span>m c</span>
+          <span>oh0917ce</span>
         </button>
       </div>
       <div class="search">
@@ -51,11 +51,11 @@
     >
       <el-card style="background-color:black;border:none;margin-top:100px">
         <h2
-          style="font-family:anton;font-size:50px;text-align:center;color:white;"
+          style="font-family:anton;font-size:50px;text-align:center;color:white; padding-right:100px;"
         >
           Sign Up
         </h2>
-        <p style="text-align:center">
+        <p style="text-align:center; padding-right:100px;">
           <span style="color:white;font-size:20px;">Already a member? </span
           ><a><span style="color:#fc9779;font-size:20px;">Log In</span></a>
         </p>
@@ -175,7 +175,7 @@ export default {
       loading: false,
       finished: false,
       validCredentials: {
-        email: "mc.huang.jl@gmail.com",
+        email: "oh0917ce@gmail.com",
         password: "lightscope",
       },
       model: {
