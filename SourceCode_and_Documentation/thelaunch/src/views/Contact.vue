@@ -17,24 +17,23 @@
       data-is-screen-width="true"
       data-col-margin="0"
       data-row-margin="0"
-      class="strc1"
-      id="comp-j9sf5fvi"
+      id="middle-container-pos-style"
     >
       <div class="contact-middle-container">
         <div class="title">
-          <div id="comp-j9sf5fw9inlineContent-gridContainer">
+          <div id="contact-gridContainer">
             <!--inlineContent of "AND LOCATION" box-->
             <div
               style="top: ; bottom: ; left: ; right: ; position: ;"
-              id="comp-jckajvku"
+              id="pinkbox"
             >
-              <div class="style-jhkmf1umbg"></div>
+              <div class="pinkbox-style-bg"></div>
               <div
-                class="style-jhkmf1uminlineContent"
-                id="comp-jckajvkuinlineContent"
+                class="pinkbox-style-inlineContent"
+                id="pinkbox-inlineContent"
               >
-                <div id="comp-jckajvkuinlineContent-gridWrapper">
-                  <div id="comp-jckajvkuinlineContent-gridContainer">
+                <div id="pinkbox-inlineContent-gridWrapper">
+                  <div id="pinkbox-inlineContent-gridContainer">
                     <div
                       data-svg-id="06f469158f5346a3be7e4100e38370cd.svg"
                       data-svg-type="shape"
@@ -51,10 +50,10 @@
                         height: 7px;
                         position: ;
                       "
-                      class="style-jckajvkw"
-                      id="comp-jckajvkv"
+                      class="small-whitebox-tiltline"
+                      id="small-whitebox-tiltline-pos"
                     >
-                      <div class="style-jckajvkwlink">
+                      <div class="small-whitebox-tiltline-link">
                         <div
                           style="
                             stroke-width: 0;
@@ -63,7 +62,7 @@
                             stroke-opacity: 1;
                             fill: rgba(255, 255, 255, 1);
                           "
-                          class="style-jckajvkw_non-scaling-stroke style-jckajvkwsvg"
+                          class="small-whitebox-tiltline_non-scaling-stroke small-whitebox-tiltline-svg"
                         >
                           <svg
                             preserveAspectRatio="none"
@@ -87,14 +86,14 @@
             <!--inlineContent of "CONTACT box"-->
             <div
               style="top: ; bottom: ; left: ; right: ; position: ;"
-              id="comp-jckajvjq"
+              id="white-box-container"
             >
               <div class="white-box"></div>
               <div
-                class="style-jomyp1cpinlineContent"
-                id="comp-jckajvjqinlineContent"
+                class="white-box-style"
+                id="white-box-container-inlineContent"
               >
-                <div id="comp-jckajvjqinlineContent-gridContainer"></div>
+                <div id="white-box-container-inlineContent-gridContainer"></div>
               </div>
             </div>
 
@@ -103,11 +102,11 @@
               data-packed="false"
               data-min-height="55"
               class="txtNew"
-              id="comp-jckajvkz"
+              id="text-style"
               style="width: 600px; min-height: 55px; pointer-events: none;left:48px;top:1px;"
             >
-              <h1 class="font_2">
-                <span class="color_11">
+              <h1 class="text-font">
+                <span class="text-color">
                   <span style="letter-spacing: 0.02em;"
                     >CONTACT AND LOCATION</span
                   >
@@ -132,10 +131,10 @@
                 height: 52px;
                 position: ;
               "
-              class="style-jckajvkw"
+              class="small-whitebox-tiltline"
               id="comp-jmstz2a3"
             >
-              <div class="style-jckajvkwlink">
+              <div class="small-whitebox-tiltline-link">
                 <div
                   style="
                     stroke-width: 0;
@@ -144,7 +143,7 @@
                     stroke-opacity: 0;
                     fill: rgba(252, 151, 121, 1);
                   "
-                  class="style-jckajvkw_comp-jmstz2a3 style-jckajvkw_non-scaling-stroke style-jckajvkwsvg"
+                  class="small-whitebox-tiltline_comp-jmstz2a3 small-whitebox-tiltline_non-scaling-stroke small-whitebox-tiltline-svg"
                   id="comp-jmstz2a3svg"
                 >
                   <svg
@@ -175,9 +174,9 @@
             id="comp-j9sd1jhq"
           >
             <h2 class="font_5">
-              <span class="color_11">
+              <span class="text-color">
                 <span style="letter-spacing:0.05em;">
-                  <span class="backcolor_18">Address</span>
+                  <span class="text-backcolor">Address</span>
                 </span>
               </span>
             </h2>
@@ -187,10 +186,10 @@
             style="width: 212px; min-height: 68px; pointer-events: none;margin:0 0 0 208px;"
             data-min-height="68"
             class="txtNew"
-            id="comp-j9pqh0sk"
+            id="address-style"
           >
-            <p class="font_8" style="line-height:1.95em;">
-              <span class="color_15"
+            <p class="p-font" style="line-height:1.95em;">
+              <span class="span-color"
                 ><span style="letter-spacing:0.06em;"
                   >University of New South Wales, Kensington, NSW, Australia
                   2052</span
@@ -206,8 +205,8 @@
             class="txtNew"
             id="comp-j9xwqju7"
           >
-            <p class="font_8" style="line-height:1.95em;">
-              <span class="color_15"
+            <p class="p-font" style="line-height:1.95em;">
+              <span class="span-color"
                 ><span style="letter-spacing:0.05em;"
                   >Parking is available on site</span
                 ></span
@@ -245,9 +244,9 @@
             id="comp-j9sd1jhq"
           >
             <h2 class="font_5">
-              <span class="color_11">
+              <span class="text-color">
                 <span style="letter-spacing:0.05em;">
-                  <span class="backcolor_18">Contact Us</span>
+                  <span class="text-backcolor">Contact Us</span>
                 </span>
               </span>
             </h2>
@@ -262,8 +261,8 @@
               class="txtNew"
               id="comp-j9qtwef6"
             >
-              <p class="font_8" style="line-height:1.95em;">
-                <span class="color_15"
+              <p class="p-font" style="line-height:1.95em;">
+                <span class="span-color"
                   ><span style="letter-spacing:0.07em;"
                     >Looking to host a private party or book your band to play
                     at The Launch? We’re open for business - please send us an
@@ -279,15 +278,13 @@
               class="txtNew"
               id="comp-j9qva5kv"
             >
-              <p class="font_8" style="line-height:1.8em;">
-                <span class="color_15"
+              <p class="p-font" style="line-height:1.8em;">
+                <span class="span-color"
                   ><span style="letter-spacing:0.1em;"
                     >Tel: +61 414481039<br />
                     Email:
                     <object height="0"
                       ><a
-                        class="auto-generated-link"
-                        data-auto-recognition="true"
                         data-content="z5141464@unsw.edu.au"
                         href="mailto:z5141464@unsw.edu.au"
                         data-type="mail"
@@ -302,14 +299,14 @@
           <div class="contact-form">
             <form @submit.prevent="onSubmit">
               <div
-                class="style-ju0zx8lg"
+                class="name-email-style"
                 data-disabled="false"
                 style="width: 318px; height: 34px;"
-                id="comp-ju0zx8ju"
+                id="contact-name-pos"
               >
                 <label
                   style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr"
-                  class="style-ju0zx8lglabel"
+                  class="name-email-style-label"
                 ></label>
                 <input
                   v-model="name"
@@ -323,14 +320,14 @@
               </div>
               <br />
               <div
-                class="style-ju0zx8lg"
+                class="name-email-style"
                 data-disabled="false"
                 style="width: 318px; height: 34px;"
-                id="comp-ju0zx8jx"
+                id="contact-email-pos"
               >
                 <label
                   style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr;"
-                  class="style-ju0zx8lglabel"
+                  class="name-email-style-label"
                 ></label>
                 <input
                   v-model="email"
@@ -346,14 +343,14 @@
               </div>
               <br />
               <div
-                class="style-ju0zx8m01"
+                class="message-style"
                 style="width: 318px; height: 129px;"
                 data-state="valid"
-                id="comp-ju0zx8kd"
+                id="contact-message-pos"
               >
                 <label
                   style="padding-left:0;padding-right:20px;display:none;margin-bottom:9px;text-align:left;direction:ltr"
-                  class="style-ju0zx8m01label"
+                  class="message-style-label"
                 ></label>
                 <textarea
                   v-model="message"
@@ -367,7 +364,7 @@
               </div>
               <br />
               <div
-                id="comp-ju0zx8jy"
+                id="submit-pos"
                 data-align="center"
                 data-disabled="false"
                 data-margin="0"
@@ -375,14 +372,14 @@
                 data-width="131"
                 data-height="34"
                 style="cursor: pointer; height: 34px; min-height: 19px; width: 131px;"
-                class="style-ju102993"
+                class="submit-style"
                 data-state="desktop shouldUseFlex center"
               >
                 <button
                   style="cursor:pointer;outline:none;"
-                  class="g-transparent-a style-ju102993link"
+                  class="g-transparent-a submit-style-link"
                 >
-                  <span class="style-ju102993label">GET IN TOUCH</span>
+                  <span class="submit-style-label">GET IN TOUCH</span>
                 </button>
               </div>
             </form>
@@ -407,7 +404,7 @@ export default {
   components: {
     Header,
     Footer,
-    Player
+    Player,
   },
   data() {
     return {
@@ -419,11 +416,11 @@ export default {
       center: { lat: -33.91758, lng: 151.22884 },
       markers: [
         {
-          position: { lat: -33.91758, lng: 151.22884 }
-        }
+          position: { lat: -33.91758, lng: 151.22884 },
+        },
       ],
       infowindow: { lat: -33.916, lng: 151.22884 },
-      window_open: false
+      window_open: false,
     };
   },
   methods: {
@@ -440,15 +437,15 @@ export default {
             {
               name: this.name,
               email: this.email,
-              message: this.message
+              message: this.message,
             }
           )
           .then(
-            response => {
+            (response) => {
               console.log("SUCCESS You just sent an email...", response);
               this.$alert("Request has been successfully sent!");
             },
-            error => {
+            (error) => {
               console.log("FAILED Throw an error to user...", error);
               this.$alert("Failed to send a request.");
             }
@@ -457,8 +454,8 @@ export default {
         this.email = null;
         this.message = null;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -504,7 +501,7 @@ export default {
   background-color: #000;
   align-self: center;
 }
-#comp-j9sf5fw9inlineContent-gridContainer {
+#contact-gridContainer {
   position: static;
   display: grid;
   height: auto;
@@ -514,7 +511,7 @@ export default {
   grid-template-columns: 100%;
 }
 
-#comp-jckajvjq {
+#white-box-container {
   position: relative;
   margin: 64px 0px 10px calc((100% - 980px) * 0.5);
   left: 8px;
@@ -523,7 +520,7 @@ export default {
   align-self: start;
 }
 
-#comp-jckajvkz {
+#text-style {
   position: relative;
   margin: 69px 0px 10px calc((100% - 980px) * 0.5);
   left: 41px;
@@ -532,7 +529,7 @@ export default {
   align-self: start;
 }
 
-#comp-jckajvku {
+#pinkbox {
   position: relative;
   margin: 82px 0px 10px calc((100% - 980px) * 0.5);
   left: 226px;
@@ -541,7 +538,7 @@ export default {
   align-self: start;
 }
 
-#comp-jckajvkv {
+#small-whitebox-tiltline-pos {
   position: relative;
   margin: 52px 0px 0px 0;
   left: 255px;
@@ -559,7 +556,7 @@ export default {
   align-self: start;
 }
 
-#comp-j9pqh0sk {
+#address-style {
   position: relative;
   margin: 0px 0px 13px calc((100% - 980px) * 0.5);
   left: 19px;
@@ -595,7 +592,7 @@ export default {
   align-self: start;
 }
 
-#comp-j9sf5fvi {
+#middle-container-pos-style {
   position: relative;
   margin: 0px 0px 0 calc((100% - 980px) * 0.5);
   left: 0px;
@@ -604,26 +601,26 @@ export default {
   align-self: start;
 }
 
-#comp-jckajvjqinlineContent {
+#white-box-container-inlineContent {
   height: auto;
   width: 218px;
   position: relative;
 }
 
-#comp-jckajvkuinlineContent {
+#pinkbox-inlineContent {
   height: auto;
   width: 338px;
   position: relative;
 }
 
-#comp-jckajvjqinlineContent-gridContainer {
+#white-box-container-inlineContent-gridContainer {
   position: static;
   height: auto;
   width: 100%;
   min-height: 93px;
 }
 
-#comp-jckajvkuinlineContent-gridContainer {
+#pinkbox-inlineContent-gridContainer {
   position: static;
   display: grid;
   height: auto;
@@ -634,7 +631,7 @@ export default {
   grid-template-columns: 100%;
 }
 
-#comp-jckajvkuinlineContent-gridWrapper {
+#pinkbox-inlineContent-gridWrapper {
   display: flex;
   pointer-events: none;
 }
@@ -757,7 +754,7 @@ export default {
   left: 0;
 }
 
-.style-jomyp1cpinlineContent {
+.white-box-style {
   position: absolute;
   top: 0;
   right: 0;
@@ -765,7 +762,7 @@ export default {
   left: 0;
 }
 
-.style-jhkmf1umbg {
+.pinkbox-style-bg {
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -775,19 +772,19 @@ export default {
   background-color: rgba(252, 151, 121, 1);
 }
 
-.style-jckajvkw {
+.small-whitebox-tiltline {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.style-jckajvkwlink,
-.style-jckajvkwsvg {
+.small-whitebox-tiltline-link,
+.small-whitebox-tiltline-svg {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-.style-jckajvkw svg {
+.small-whitebox-tiltline svg {
   position: absolute;
   top: 0;
   right: 0;
@@ -797,14 +794,14 @@ export default {
   height: 100%;
   margin: auto;
 }
-.style-jckajvkw_non-scaling-stroke * {
+.small-whitebox-tiltline_non-scaling-stroke * {
   vector-effect: non-scaling-stroke;
 }
-.style-jckajvkw_with-shadow svg {
+.small-whitebox-tiltline_with-shadow svg {
   overflow: visible !important;
 }
 
-.style-jhkmf1uminlineContent {
+.pinkbox-style-inlineContent {
   position: absolute;
   top: 0;
   right: 0;
@@ -812,7 +809,7 @@ export default {
   left: 0;
 }
 
-.style-jckajvkwsvg {
+.small-whitebox-tiltline-svg {
   position: absolute;
   top: 0;
   right: 0;
@@ -820,10 +817,10 @@ export default {
   left: 0;
 }
 
-.style-jckajvkw_non-scaling-stroke * {
+.small-whitebox-tiltline_non-scaling-stroke * {
   vector-effect: non-scaling-stroke;
 }
-.style-ju0zx8lg {
+.name-email-style {
   position: relative;
   min-height: 25px;
   display: -webkit-box;
@@ -834,7 +831,7 @@ export default {
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.style-ju0zx8m01 {
+.message-style {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -844,7 +841,7 @@ export default {
   flex-direction: column;
 }
 
-#comp-ju0zx8kd {
+#contact-message-pos {
   position: relative;
   margin: 0px 0px 6px 0;
   left: 9px;
@@ -853,7 +850,7 @@ export default {
   align-self: start;
 }
 
-#comp-ju0zx8ju {
+#contact-name-pos {
   position: relative;
   margin: 11px 0px 6px 0;
   left: 9px;
@@ -862,7 +859,7 @@ export default {
   align-self: start;
 }
 
-#comp-ju0zx8jx {
+#contact-email-pos {
   position: relative;
   margin: 0px 0px 7px 0;
   left: 9px;
@@ -871,7 +868,7 @@ export default {
   align-self: start;
 }
 
-#comp-ju0zx8jy {
+#submit-pos {
   position: relative;
   margin: 0px 0px 6px 0;
   left: 196px;
@@ -880,7 +877,7 @@ export default {
   align-self: start;
 }
 
-.font_2 {
+.text-font {
   font: normal normal normal 54px/1.4em anton, sans-serif;
   color: #ffffff;
 }
@@ -889,17 +886,17 @@ export default {
     sans-serif;
   color: #ffffff;
 }
-.font_8 {
+.p-font {
   font: normal normal bold 14px/1.4em avenir-lt-w01_35-light1475496, sans-serif;
   color: #ffffff;
 }
-.color_11 {
+.text-color {
   color: #000000;
 }
-.color_15 {
+.span-color {
   color: #ffffff;
 }
-.backcolor_18 {
+.text-backcolor {
   background-color: #fc9779;
 }
 .inputGroup {
@@ -945,14 +942,14 @@ export default {
   border-color: rgba(255, 255, 255, 1);
   outline: none;
 }
-.style-ju0zx8lglabel {
+.name-email-style-label {
   font: normal normal normal 17px/1.4em futura-lt-w01-book, sans-serif;
   color: #fe6060;
   word-break: break-word;
   display: inline-block;
   line-height: 1;
 }
-.style-ju0zx8lglabel::after {
+.name-email-style-label::after {
   content: " *";
   color: rgba(254, 96, 96, 1);
 }
@@ -992,18 +989,18 @@ export default {
   border-color: rgba(255, 255, 255, 1);
   outline: none;
 }
-.style-ju0zx8m01label {
+.message-style-label {
   font: normal normal normal 17px/1.4em futura-lt-w01-book, sans-serif;
   color: #fe6060;
   word-break: break-word;
   display: inline-block;
   line-height: 1;
 }
-.style-ju0zx8m01label::after {
+.message-style-label::after {
   content: " *";
   color: rgba(254, 96, 96, 1);
 }
-.style-ju102993label {
+.submit-style-label {
   font: normal normal normal 14px/1.4em avenir-lt-w01_85-heavy1475544,
     sans-serif;
   transition: color 0.4s ease 0s;
@@ -1013,18 +1010,18 @@ export default {
   position: relative;
   white-space: nowrap;
 }
-.style-ju102993label:hover {
+.submit-style-label:hover {
   color: #fc9779;
 }
-.style-ju102993,
-button.style-ju102993link {
+.submit-style,
+button.submit-style-link {
   width: 100%;
 }
-.style-ju102993 {
+.submit-style {
   background-color: transparent;
   border-color: rgba(252, 151, 121, 1);
 }
-.style-ju102993link {
+.submit-style-link {
   border-radius: 0;
   position: absolute;
   top: 0;
@@ -1033,15 +1030,15 @@ button.style-ju102993link {
   left: 0;
   transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
 }
-.style-ju102993[data-disabled="false"] .style-ju102993link {
+.submit-style[data-disabled="false"] .submit-style-link {
   background-color: rgba(252, 151, 121, 1);
   border: solid rgba(252, 151, 121, 1) 3px;
   cursor: pointer !important;
 }
-.style-ju102993[data-disabled="false"]:hover[data-state~="desktop"]
-  .style-ju102993link,
-.style-ju102993[data-disabled="false"][data-preview~="hover"]
-  .style-ju102993link {
+.submit-style[data-disabled="false"]:hover[data-state~="desktop"]
+  .submit-style-link,
+.submit-style[data-disabled="false"][data-preview~="hover"]
+  .submit-style-link {
   background-color: transparent;
   border-color: rgba(252, 151, 121, 1);
 }
