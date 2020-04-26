@@ -82,11 +82,16 @@
             </section>
           </div>
         </div>
+        <br>
         <div class="loading">
           <button v-if="showMore" @click="loadMore">
             <span>Load More</span>
           </button>
           <span class="nomore" v-else>There is no more news</span>
+        </div>
+        <br>
+        <div>
+        <p style="color: white;margin-left:900px;font-size:12px;">Power by News API</p>
         </div>
       </div>
     </div>
