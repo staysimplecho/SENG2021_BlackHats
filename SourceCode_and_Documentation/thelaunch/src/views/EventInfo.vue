@@ -7,7 +7,13 @@
       </div>
       <div class="event-info_artist">{{ event.name }}</div>
       <div class="event-info_description">{{ event.description }}</div>
-      <button class="event-info_btn" @click="toTicketPage()">BOOK NOW</button>
+      <button v-if="checkStatus()" class="event-info_btn" @click="toTicketPage()">
+        BOOK NOW
+      </button>
+      <button v-else class="event-info_btn" disabled>
+        Registration is Closed
+        <a href="toHomePage" style="color:#fc9779">See other events</a>
+      </button>
       <img class="event-info_img" :src="url" />
       <div class="event-info_extend">
         <div class="event-info_extend_title">Time & Location</div>
@@ -64,7 +70,11 @@
               ></path>
             </svg>
           </a>
-          <a href="https://twitter.com/login" target="_blank" style="margin-left: 20px;">
+          <a
+            href="https://twitter.com/login"
+            target="_blank"
+            style="margin-left: 20px;"
+          >
             <svg viewBox="0 0 18 14" fill="currentColor" width="18" height="14">
               <path
                 d="M50.0768084,18.6572894 C49.4120716,18.9383915 48.6969358,19.1284894 47.9467859,19.2134267 C48.7133818,18.7761005 49.3011937,18.0839623 49.5775926,17.2588567 C48.8603348,17.6638258 48.0677436,17.9575674 47.2215703,18.1158138 C46.5467537,17.4287314 45.5817448,17 44.5148767,17 C42.4676148,17 40.8070991,18.5824636 40.8070991,20.5340002 C40.8070991,20.8115633 40.8389301,21.0805316 40.902592,21.3388827 C37.8208235,21.1912535 35.0886652,19.7852371 33.2583844,17.6456249 C32.9390136,18.1694052 32.7565161,18.7761005 32.7565161,19.4242534 C32.7565161,20.6487667 33.411173,21.7312123 34.4064214,22.3657145 C33.7984499,22.3480192 33.2260229,22.187245 32.7257461,21.9243436 L32.7257461,21.9678235 C32.7257461,23.6807266 34.0037596,25.1094941 35.7014114,25.4330649 C35.3899984,25.5159799 35.0626699,25.5574374 34.7242006,25.5574374 C34.4849378,25.5574374 34.2520412,25.5362031 34.0265718,25.4947456 C34.4982007,26.8987397 35.867463,27.9210213 37.490312,27.9483226 C36.2213173,28.8967896 34.621811,29.4615218 32.884901,29.4615218 C32.5851593,29.4615218 32.2896618,29.4458488 32,29.4124806 C33.6414171,30.414539 35.5905335,31 37.6850114,31 C44.5074495,31 48.2364477,25.6155791 48.2364477,20.9440251 C48.2364477,20.7908346 48.2332646,20.637644 48.2268984,20.4869813 C48.9515835,19.98848 49.5813062,19.3656062 50.0768084,18.6572894"
@@ -74,7 +84,11 @@
               ></path>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/login" target="_blank" style="margin-left: 20px;">
+          <a
+            href="https://www.linkedin.com/login"
+            target="_blank"
+            style="margin-left: 20px;"
+          >
             <svg viewBox="0 0 19 16" fill="#fff" width="19" height="16">
               <path
                 d="M2.30367607,0.025974026 C3.49850532,0.025974026 4.46947897,0.885212121 4.46947897,1.94130736 C4.46947897,2.99987879 3.49850532,3.85911688 2.30367607,3.85911688 C1.10464953,3.85911688 0.13647407,2.99987879 0.13647407,1.94130736 C0.13647407,0.885212121 1.10464953,0.025974026 2.30367607,0.025974026 L2.30367607,0.025974026 Z M0.433082736,15.9491169 L4.17287031,15.9491169 L4.17287031,5.31387879 L0.433082736,5.31387879 L0.433082736,15.9491169 Z M6.51467968,5.31325974 L10.0963692,5.31325974 L10.0963692,6.76554545 L10.1467367,6.76554545 C10.6448154,5.92983117 11.8634294,5.04830736 13.680857,5.04830736 C17.4612184,5.04830736 18.159368,7.25087879 18.159368,10.1158312 L18.159368,15.9484978 L14.427975,15.9484978 L14.427975,10.776974 C14.427975,9.54259307 14.4013922,7.95659307 12.4874268,7.95659307 C10.5426813,7.95659307 10.2460727,9.29992641 10.2460727,10.6865931 L10.2460727,15.9484978 L6.51467968,15.9484978 L6.51467968,5.31325974 Z"
@@ -118,6 +132,7 @@ export default {
         lo_precise: "Online Platform",
         description:
           "As a curator of infectious grooves and wistful atmospheres, Enamour has developed a sound that delicately walks the line between deep introspection and pure club play. His sets are an intricate blend of deep, progressive, tech house and techno that values musicality over anything else.",
+        status: "Ticket Available",
       },
       //maps
       center: { lat: -33.9435913, lng: 151.2219017 },
@@ -133,6 +148,7 @@ export default {
   methods: {
     getEventInfo() {
       this.event.id = this.$route.params.id;
+      this.status = this.$route.params.status;
       this.url = require("../assets/events/" + this.event.id + "_large.jpg");
       //axios get info
     },
@@ -144,6 +160,17 @@ export default {
         "https://www.bandsintown.com/t/102190707?app_id=1640370bd8cf5d04b5b855b801530c46&came_from=267&utm_medium=api&utm_source=public_api&utm_campaign=ticket",
         "_blank"
       );
+    },
+    toHomePage() {
+      this.$router.push({
+        name: "Home",
+      });
+    },
+    checkStatus() {
+      if (this.status == "Ticket Available") {
+        return true;
+      }
+      return false;
     },
   },
 

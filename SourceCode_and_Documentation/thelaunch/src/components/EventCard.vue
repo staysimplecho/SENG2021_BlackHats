@@ -8,9 +8,10 @@
       <h3>{{ day + ", " + date }}</h3>
       <h3>{{ time }}</h3>
       <p>{{ description }}</p>
+      <p style="font-weight:bold;color:#fc9779">{{ status }}</p>
     </div>
     <div class="btn">
-      <el-button @click="toEventPage(id, name, day, date, time, description)"
+      <el-button @click="toEventPage(id, name, day, date, time, description, status)"
         >Details</el-button
       >
     </div>
@@ -62,6 +63,12 @@ export default {
         return "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
       },
     },
+    status: {
+      typoe: String,
+      default() {
+        return "Ticket Available";
+      },
+    }
   },
   data() {
     return {
@@ -69,7 +76,7 @@ export default {
     };
   },
   methods: {
-    toEventPage(id, name, day, date, time, description) {
+    toEventPage(id, name, day, date, time, description, status) {
       this.$router.push({
         name: "EventPage",
         params: {
@@ -79,6 +86,7 @@ export default {
           date: date,
           time: time,
           description: description,
+          status: status,
         },
       });
     },
